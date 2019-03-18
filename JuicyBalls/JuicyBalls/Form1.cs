@@ -1,26 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Library;
 
 namespace JuicyBalls
 {
     public partial class Form1 : Form
     {
+        private bool signin1 = false;
+        private string password = "Test";
+        private string name = "Test";
 
-        bool signin1 = false;
-        string password = "Test";
-        string name = "Test";
         public Form1()
         {
             InitializeComponent();
         }
+
         private void signin(Button Used, TextBox Name, TextBox Password, GroupBox container, Button Settings)
         {
             if (signin1 == true)
@@ -44,7 +38,6 @@ namespace JuicyBalls
                     signin1 = true;
                 }
             }
-
         }
 
         private void btnConfirmPlayer1_Click(object sender, EventArgs e)
@@ -61,6 +54,7 @@ namespace JuicyBalls
         {
             tabControl1.SelectedIndex = 0;
         }
+
         private void buttonGoToLogin2_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 0;
@@ -78,7 +72,7 @@ namespace JuicyBalls
 
         private void buttonChangePassword_Click(object sender, EventArgs e)
         {
-            if(textBoxOldPassword.Text == password && textBoxConfirmNewPassword.Text == textBoxNewPassword.Text)
+            if (textBoxOldPassword.Text == password && textBoxConfirmNewPassword.Text == textBoxNewPassword.Text)
             {
                 password = textBoxNewPassword.Text;
                 MessageBox.Show("Changed Password");
@@ -105,7 +99,6 @@ namespace JuicyBalls
             buttonCloseChangeName.Visible = false;
             buttonOpenChangeName.Visible = true;
             buttonOpenChangePassword.Visible = true;
-
         }
 
         private void buttonOpenChangePassword_Click(object sender, EventArgs e)
@@ -133,6 +126,93 @@ namespace JuicyBalls
             buttonChangePassword.Visible = false;
             buttonCloseChangePassword.Visible = false;
             buttonOpenChangePassword.Visible = true;
+        }
+
+        private void buttonDarkMode_Click(object sender, EventArgs e)
+        {
+            //Buttons
+            btnConfirmPlayer1.BackColor = Color.DimGray;
+    
+            btnConfirmPlayer2.BackColor = Color.DimGray;
+            
+            btnConfirmPlayer3.BackColor = Color.DimGray;
+            
+            btnConfirmPlayer4.BackColor = Color.DimGray;
+            
+            btnGoToRegister.BackColor = Color.DimGray;
+            btnGoToRegister.ForeColor = Color.White;
+            btnStartGame.BackColor = Color.DimGray;
+            btnStartGame.ForeColor = Color.White;
+            btnRefill1.BackColor = Color.DimGray;
+            btnRefill2.BackColor = Color.DimGray;
+            btnRefill3.BackColor = Color.DimGray;
+            btnRefill4.BackColor = Color.DimGray;
+            btnRefill5.BackColor = Color.DimGray;
+            btnGoToLogin.BackColor = Color.DimGray;
+            btnGoToLogin.ForeColor = Color.White;
+            buttonGoToLogin2.BackColor = Color.DimGray;
+            buttonGoToLogin2.ForeColor = Color.White;
+            buttonChangePassword.BackColor = Color.DimGray;
+            buttonChangePassword.ForeColor = Color.White;
+            btnRegisterAccount.BackColor = Color.DimGray;
+            btnRegisterAccount.ForeColor = Color.White;
+            buttonCloseChangePassword.BackColor = Color.DimGray;
+            buttonOpenChangePassword.BackColor = Color.DimGray;
+            buttonOpenChangePassword.ForeColor = Color.White;
+            
+
+            //Groupboxes
+            groupBox1.BackColor = Color.DimGray;
+            groupBox1.ForeColor = Color.White;
+            groupBox2.BackColor = Color.DimGray;
+            groupBox2.ForeColor = Color.White;
+            groupBox3.BackColor = Color.DimGray;
+            groupBox3.ForeColor = Color.White;
+            groupBox4.BackColor = Color.DimGray;
+            groupBox4.ForeColor = Color.White;
+            groupBox5.BackColor = Color.DimGray;
+            groupBox5.ForeColor = Color.White;
+            groupBox6.BackColor = Color.DimGray;
+            groupBox6.ForeColor = Color.White;
+            groupBox7.BackColor = Color.DimGray;
+            groupBox7.ForeColor = Color.White;
+            groupBox8.BackColor = Color.DimGray;
+            groupBox8.ForeColor = Color.White;
+            groupBox9.BackColor = Color.DimGray;
+            groupBox9.ForeColor = Color.White;
+            groupBox10.BackColor = Color.DimGray;
+            groupBox10.ForeColor = Color.White;
+            groupBoxChangeName.BackColor = Color.DimGray;
+            groupBoxChangePassword.BackColor = Color.DimGray;
+
+            //TextBoxes
+            textBoxNamePlayer1.BackColor = Color.LightGray;
+            textBoxNamePlayer2.BackColor = Color.LightGray;
+            textBoxNamePlayer3.BackColor = Color.LightGray;
+            textBoxNamePlayer4.BackColor = Color.LightGray;
+            textBoxPasswordPlayer1.BackColor = Color.LightGray;
+            textBoxPasswordPlayer2.BackColor = Color.LightGray;
+            textBoxPasswordPlayer3.BackColor = Color.LightGray;
+            textBoxPasswordPlayer4.BackColor = Color.LightGray;
+            textBoxRegisterName.BackColor = Color.LightGray;
+            textBoxRegisterPassword.BackColor = Color.LightGray;
+            textBoxConfirmPassword.BackColor = Color.LightGray;
+            textBoxOldPassword.BackColor = Color.DimGray;
+            textBoxNewPassword.BackColor = Color.DimGray;
+            textBoxConfirmNewPassword.BackColor = Color.DimGray;
+
+
+            //pictureboxes
+            pictureBox1.BackColor = Color.DimGray;
+
+            //Listboxes
+            listBoxLog.BackColor = Color.DimGray;
+            listBoxStats.BackColor = Color.DimGray;
+        }
+
+        private void btnRegisterAccount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
