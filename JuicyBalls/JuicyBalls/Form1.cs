@@ -16,6 +16,8 @@ namespace JuicyBalls
         public Form1()
         {
             InitializeComponent();
+            DBClass dbclass = new DBClass();
+            Account account = new Account();
         }
     }
 }
