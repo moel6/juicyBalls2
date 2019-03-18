@@ -108,9 +108,6 @@ namespace Library
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataReader myReader = command.ExecuteReader();
                 command.Parameters.AddWithValue(account.Username, "@Username");
-               
-
-                string test;
 
                 while (myReader.Read())
                 {
