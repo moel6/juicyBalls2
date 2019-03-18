@@ -15,6 +15,8 @@ namespace JuicyBalls
     {
 
         bool signin1 = false;
+        string password = "Test";
+        string name = "Test";
         public Form1()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace JuicyBalls
             }
             else
             {
-                if (Name.Text == "Test" && Password.Text == "Test")
+                if (Name.Text == name && Password.Text == password)
                 {
                     container.BackColor = Color.Green;
                     Used.BackColor = Color.Red;
@@ -63,6 +65,11 @@ namespace JuicyBalls
         private void btnSettingsPlayer1_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 3;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

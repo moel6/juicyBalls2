@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.LogIn = new System.Windows.Forms.TabPage();
             this.btnGoToRegister = new System.Windows.Forms.Button();
             this.btnStartGame = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -58,6 +57,7 @@
             this.textBoxNamePlayer1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxPasswordPlayer1 = new System.Windows.Forms.TextBox();
+            this.Game = new System.Windows.Forms.TabPage();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.labelCurrentTurn = new System.Windows.Forms.Label();
             this.labelNextTurn = new System.Windows.Forms.Label();
@@ -82,7 +82,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBoxStats = new System.Windows.Forms.ListBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnRefill5 = new System.Windows.Forms.Button();
             this.btnRefill4 = new System.Windows.Forms.Button();
@@ -101,8 +101,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.listBoxLog = new System.Windows.Forms.ListBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.Register = new System.Windows.Forms.TabPage();
             this.btnGoToLogin = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.textBoxConfirmPassword = new System.Windows.Forms.TextBox();
@@ -112,73 +111,60 @@
             this.textBoxRegisterName = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.textBoxRegisterPassword = new System.Windows.Forms.TextBox();
+            this.Settings = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.LogIn.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.Game.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.Register.SuspendLayout();
             this.groupBox10.SuspendLayout();
+            this.Settings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.LogIn);
+            this.tabControl1.Controls.Add(this.Game);
+            this.tabControl1.Controls.Add(this.Register);
+            this.tabControl1.Controls.Add(this.Settings);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1034, 570);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // LogIn
             // 
-            this.tabPage1.Controls.Add(this.btnGoToRegister);
-            this.tabPage1.Controls.Add(this.btnStartGame);
-            this.tabPage1.Controls.Add(this.groupBox4);
-            this.tabPage1.Controls.Add(this.groupBox3);
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1026, 541);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.groupBox9);
-            this.tabPage2.Controls.Add(this.btnTurn);
-            this.tabPage2.Controls.Add(this.btnStopGame);
-            this.tabPage2.Controls.Add(this.groupBox8);
-            this.tabPage2.Controls.Add(this.groupBox7);
-            this.tabPage2.Controls.Add(this.groupBox6);
-            this.tabPage2.Controls.Add(this.groupBox5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1026, 541);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.LogIn.Controls.Add(this.pictureBox1);
+            this.LogIn.Controls.Add(this.btnGoToRegister);
+            this.LogIn.Controls.Add(this.btnStartGame);
+            this.LogIn.Controls.Add(this.groupBox4);
+            this.LogIn.Controls.Add(this.groupBox3);
+            this.LogIn.Controls.Add(this.groupBox2);
+            this.LogIn.Controls.Add(this.groupBox1);
+            this.LogIn.Location = new System.Drawing.Point(4, 25);
+            this.LogIn.Name = "LogIn";
+            this.LogIn.Padding = new System.Windows.Forms.Padding(3);
+            this.LogIn.Size = new System.Drawing.Size(1026, 541);
+            this.LogIn.TabIndex = 0;
+            this.LogIn.Text = "LogIn";
+            this.LogIn.UseVisualStyleBackColor = true;
             // 
             // btnGoToRegister
             // 
-            this.btnGoToRegister.Location = new System.Drawing.Point(423, 329);
+            this.btnGoToRegister.Location = new System.Drawing.Point(423, 428);
             this.btnGoToRegister.Name = "btnGoToRegister";
             this.btnGoToRegister.Size = new System.Drawing.Size(176, 26);
             this.btnGoToRegister.TabIndex = 15;
@@ -189,7 +175,7 @@
             // btnStartGame
             // 
             this.btnStartGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartGame.Location = new System.Drawing.Point(423, 398);
+            this.btnStartGame.Location = new System.Drawing.Point(423, 460);
             this.btnStartGame.Name = "btnStartGame";
             this.btnStartGame.Size = new System.Drawing.Size(176, 75);
             this.btnStartGame.TabIndex = 14;
@@ -203,7 +189,7 @@
             this.groupBox4.Controls.Add(this.textBoxNamePlayer4);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.textBoxPasswordPlayer4);
-            this.groupBox4.Location = new System.Drawing.Point(763, 68);
+            this.groupBox4.Location = new System.Drawing.Point(763, 167);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(186, 241);
             this.groupBox4.TabIndex = 13;
@@ -259,7 +245,7 @@
             this.groupBox3.Controls.Add(this.textBoxNamePlayer3);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.textBoxPasswordPlayer3);
-            this.groupBox3.Location = new System.Drawing.Point(535, 68);
+            this.groupBox3.Location = new System.Drawing.Point(535, 167);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(186, 241);
             this.groupBox3.TabIndex = 11;
@@ -315,7 +301,7 @@
             this.groupBox2.Controls.Add(this.textBoxNamePlayer2);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.textBoxPasswordPlayer2);
-            this.groupBox2.Location = new System.Drawing.Point(303, 68);
+            this.groupBox2.Location = new System.Drawing.Point(303, 167);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(186, 241);
             this.groupBox2.TabIndex = 12;
@@ -372,7 +358,7 @@
             this.groupBox1.Controls.Add(this.textBoxNamePlayer1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBoxPasswordPlayer1);
-            this.groupBox1.Location = new System.Drawing.Point(78, 68);
+            this.groupBox1.Location = new System.Drawing.Point(78, 167);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(186, 241);
             this.groupBox1.TabIndex = 10;
@@ -432,6 +418,23 @@
             this.textBoxPasswordPlayer1.Size = new System.Drawing.Size(172, 22);
             this.textBoxPasswordPlayer1.TabIndex = 2;
             this.textBoxPasswordPlayer1.UseSystemPasswordChar = true;
+            // 
+            // Game
+            // 
+            this.Game.Controls.Add(this.groupBox9);
+            this.Game.Controls.Add(this.btnTurn);
+            this.Game.Controls.Add(this.btnStopGame);
+            this.Game.Controls.Add(this.groupBox8);
+            this.Game.Controls.Add(this.groupBox7);
+            this.Game.Controls.Add(this.groupBox6);
+            this.Game.Controls.Add(this.groupBox5);
+            this.Game.Location = new System.Drawing.Point(4, 25);
+            this.Game.Name = "Game";
+            this.Game.Padding = new System.Windows.Forms.Padding(3);
+            this.Game.Size = new System.Drawing.Size(1026, 541);
+            this.Game.TabIndex = 1;
+            this.Game.Text = "Game";
+            this.Game.UseVisualStyleBackColor = true;
             // 
             // groupBox9
             // 
@@ -665,7 +668,7 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.listBox2);
+            this.groupBox7.Controls.Add(this.listBoxStats);
             this.groupBox7.Location = new System.Drawing.Point(741, 218);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(232, 293);
@@ -673,14 +676,14 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Statistieken";
             // 
-            // listBox2
+            // listBoxStats
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(6, 22);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(220, 260);
-            this.listBox2.TabIndex = 0;
+            this.listBoxStats.FormattingEnabled = true;
+            this.listBoxStats.ItemHeight = 16;
+            this.listBoxStats.Location = new System.Drawing.Point(6, 22);
+            this.listBoxStats.Name = "listBoxStats";
+            this.listBoxStats.Size = new System.Drawing.Size(220, 260);
+            this.listBoxStats.TabIndex = 0;
             // 
             // groupBox6
             // 
@@ -850,27 +853,16 @@
             this.listBoxLog.Size = new System.Drawing.Size(220, 148);
             this.listBoxLog.TabIndex = 0;
             // 
-            // tabPage3
+            // Register
             // 
-            this.tabPage3.Controls.Add(this.btnGoToLogin);
-            this.tabPage3.Controls.Add(this.groupBox10);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1026, 541);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.button3);
-            this.tabPage4.Controls.Add(this.button2);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1026, 541);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.Register.Controls.Add(this.btnGoToLogin);
+            this.Register.Controls.Add(this.groupBox10);
+            this.Register.Location = new System.Drawing.Point(4, 25);
+            this.Register.Name = "Register";
+            this.Register.Size = new System.Drawing.Size(1026, 541);
+            this.Register.TabIndex = 2;
+            this.Register.Text = "Register";
+            this.Register.UseVisualStyleBackColor = true;
             // 
             // btnGoToLogin
             // 
@@ -904,6 +896,7 @@
             this.textBoxConfirmPassword.Name = "textBoxConfirmPassword";
             this.textBoxConfirmPassword.Size = new System.Drawing.Size(172, 22);
             this.textBoxConfirmPassword.TabIndex = 6;
+            this.textBoxConfirmPassword.UseSystemPasswordChar = true;
             // 
             // label25
             // 
@@ -954,6 +947,18 @@
             this.textBoxRegisterPassword.Name = "textBoxRegisterPassword";
             this.textBoxRegisterPassword.Size = new System.Drawing.Size(172, 22);
             this.textBoxRegisterPassword.TabIndex = 2;
+            this.textBoxRegisterPassword.UseSystemPasswordChar = true;
+            // 
+            // Settings
+            // 
+            this.Settings.Controls.Add(this.button3);
+            this.Settings.Controls.Add(this.button2);
+            this.Settings.Location = new System.Drawing.Point(4, 25);
+            this.Settings.Name = "Settings";
+            this.Settings.Size = new System.Drawing.Size(1026, 541);
+            this.Settings.TabIndex = 3;
+            this.Settings.Text = "Settings";
+            this.Settings.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -972,6 +977,17 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Change Name";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::JuicyBalls.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(239, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(579, 157);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
@@ -982,8 +998,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.LogIn.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -992,6 +1007,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.Game.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -1000,10 +1016,11 @@
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
+            this.Register.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
+            this.Settings.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1011,7 +1028,7 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage LogIn;
         private System.Windows.Forms.Button btnGoToRegister;
         private System.Windows.Forms.Button btnStartGame;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -1039,7 +1056,7 @@
         private System.Windows.Forms.TextBox textBoxNamePlayer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxPasswordPlayer1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage Game;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.Label labelCurrentTurn;
         private System.Windows.Forms.Label labelNextTurn;
@@ -1064,7 +1081,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listBoxStats;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button btnRefill5;
         private System.Windows.Forms.Button btnRefill4;
@@ -1083,7 +1100,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ListBox listBoxLog;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage Register;
         private System.Windows.Forms.Button btnGoToLogin;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.TextBox textBoxConfirmPassword;
@@ -1093,9 +1110,10 @@
         private System.Windows.Forms.TextBox textBoxRegisterName;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox textBoxRegisterPassword;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage Settings;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
