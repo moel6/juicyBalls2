@@ -56,31 +56,6 @@ namespace Library
         }
 
 
-        private string firstname;
-
-        public string Firstname
-        {
-            get { return firstname; }
-            set { firstname = value; }
-        }
-
-        private string lastname;
-
-        public string Lastname
-        {
-            get { return lastname; }
-            set { lastname = value; }
-        }
-
-        private string middlename;
-
-        public string Middlename
-        {
-            get { return middlename; }
-            set { middlename = value; }
-        }
-
-
         private string passwordtocheck;
 
         public string PasswordToCheck
@@ -100,7 +75,7 @@ namespace Library
 
         }
 
-        public Account(bool wasPasswordCorrect, bool isLoggedIn, int id, string dbPassword, string username, string checkedpassword, string password, string firstname, string lastname, string middlename, string passwordtocheck)
+        public Account(bool wasPasswordCorrect, bool isLoggedIn, int id, string dbPassword, string username, string checkedpassword, string password, string passwordtocheck)
         {
             WasPasswordCorrect = wasPasswordCorrect;
             IsLoggedIn = isLoggedIn;
@@ -109,9 +84,6 @@ namespace Library
             this.username = username;
             this.checkedpassword = checkedpassword;
             this.password = password;
-            this.firstname = firstname;
-            this.lastname = lastname;
-            this.middlename = middlename;
             this.passwordtocheck = passwordtocheck;
         }
 

@@ -13,13 +13,12 @@ namespace JuicyBalls
 {
     public partial class Form1 : Form
     {
-
+        DBClass dbclass = new DBClass();
+        Account account = new Account();
         bool signin1 = false;
         public Form1()
         {
             InitializeComponent();
-            DBClass dbclass = new DBClass();
-            Account account = new Account();
         }
         private void signin(Button Used, TextBox Name, TextBox Password, GroupBox container, Button Settings)
         {
@@ -65,6 +64,18 @@ namespace JuicyBalls
         private void btnSettingsPlayer1_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 3;
+        }
+
+        private void btnRegisterAccount_Click(object sender, EventArgs e)
+        {
+            account.Username = textBoxRegisterName.Text;
+            account.CheckedPassword = textBoxRegisterPassword.Text;
+            account.PasswordEncryption();
+            dbclass.CreateUser(account);
+
+            //add mechanism to check if username or password are empty
+            //add check if password and confirm password are equal
+            //add checck if username + password are right.
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Library
 
         public void CreateUser(Account account)
         {
-            string query = "INSERT INTO [Accounts] (Username, Password, Firstname, Middlename, Lastname) VALUES(@Username, @password, @Firstname, @Middlename, @Lastname)";
+            string query = "INSERT INTO [Accounts] (Username, Password) VALUES(@Username, @password)";
 
             using (GetConnection())
             {
@@ -40,9 +40,6 @@ namespace Library
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Username", account.Username);
                 command.Parameters.AddWithValue("@Password", account.Password);
-                command.Parameters.AddWithValue("@Firstname", account.Firstname);
-                command.Parameters.AddWithValue("@MiddleName", account.Middlename);
-                command.Parameters.AddWithValue("@Lastname", account.Lastname);
                 command.ExecuteScalar();
             }
         }
@@ -117,7 +114,7 @@ namespace Library
 
                 while (myReader.Read())
                 {
-                    account.Username = myReader.GetString(0);
+                    account.Username = myReader.GetString(1);
                     account.accounts.Add(account.Username);
                 }
             }
