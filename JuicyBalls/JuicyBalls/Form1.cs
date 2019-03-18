@@ -10,6 +10,9 @@ namespace JuicyBalls
         private string password = "Test";
         private string name = "Test";
 
+
+      
+
         public Form1()
         {
             InitializeComponent();
@@ -29,7 +32,7 @@ namespace JuicyBalls
             }
             else
             {
-                if (Name.Text == name && Password.Text == password)
+                if (Name.Text == "Test" && Password.Text == "Test")
                 {
                     container.BackColor = Color.Green;
                     Used.BackColor = Color.Red;
@@ -64,6 +67,7 @@ namespace JuicyBalls
         {
             tabControl1.SelectedIndex = 3;
         }
+
 
         private void buttonChangeName_Click(object sender, EventArgs e)
         {
@@ -207,12 +211,13 @@ namespace JuicyBalls
 
             //Listboxes
             listBoxLog.BackColor = Color.DimGray;
-            listBoxStats.BackColor = Color.DimGray;
+            //listBoxStats.BackColor = Color.DimGray;
         }
 
         private void btnRegisterAccount_Click(object sender, EventArgs e)
         {
 
         }
+
     }
 }
