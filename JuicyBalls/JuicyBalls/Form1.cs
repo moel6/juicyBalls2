@@ -61,15 +61,78 @@ namespace JuicyBalls
         {
             tabControl1.SelectedIndex = 0;
         }
+        private void buttonGoToLogin2_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 0;
+        }
 
         private void btnSettingsPlayer1_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 3;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonChangeName_Click(object sender, EventArgs e)
         {
+            name = textBoxNewName.Text;
+        }
 
+        private void buttonChangePassword_Click(object sender, EventArgs e)
+        {
+            if(textBoxOldPassword.Text == password && textBoxConfirmNewPassword.Text == textBoxNewPassword.Text)
+            {
+                password = textBoxNewPassword.Text;
+                MessageBox.Show("Changed Password");
+            }
+        }
+
+        private void buttonOpenChangeName_Click(object sender, EventArgs e)
+        {
+            groupBoxChangeName.Visible = true;
+            labelNewName.Visible = true;
+            textBoxNewName.Visible = true;
+            buttonChangeName.Visible = true;
+            buttonCloseChangeName.Visible = true;
+            buttonOpenChangeName.Visible = false;
+            buttonOpenChangePassword.Visible = false;
+        }
+
+        private void buttonCloseChangeName_Click(object sender, EventArgs e)
+        {
+            groupBoxChangeName.Visible = false;
+            labelNewName.Visible = false;
+            textBoxNewName.Visible = false;
+            buttonChangeName.Visible = false;
+            buttonCloseChangeName.Visible = false;
+            buttonOpenChangeName.Visible = true;
+            buttonOpenChangePassword.Visible = true;
+
+        }
+
+        private void buttonOpenChangePassword_Click(object sender, EventArgs e)
+        {
+            groupBoxChangePassword.Visible = true;
+            textBoxOldPassword.Visible = true;
+            textBoxNewPassword.Visible = true;
+            textBoxConfirmNewPassword.Visible = true;
+            labelOldPassword.Visible = true;
+            labelNewPassword.Visible = true;
+            labelConfirmNewPassword.Visible = true;
+            buttonChangePassword.Visible = true;
+            buttonCloseChangePassword.Visible = true;
+        }
+
+        private void buttonCloseChangePassword_Click(object sender, EventArgs e)
+        {
+            groupBoxChangePassword.Visible = false;
+            textBoxOldPassword.Visible = false;
+            textBoxNewPassword.Visible = false;
+            textBoxConfirmNewPassword.Visible = false;
+            labelOldPassword.Visible = false;
+            labelNewPassword.Visible = false;
+            labelConfirmNewPassword.Visible = false;
+            buttonChangePassword.Visible = false;
+            buttonCloseChangePassword.Visible = false;
+            buttonOpenChangePassword.Visible = true;
         }
     }
 }
