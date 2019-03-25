@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,153 +9,117 @@ namespace Library
     public class MessageBuilder
     {
         /// <summary>
-        /// Serial port used for the connection.
+        /// Message from which more characters are to be expected from the feed.
         /// </summary>
-        private SerialPort serialPort;
-
-        private MessageReader messageReader;
+        private string partlyMessage;
 
         /// <summary>
-        /// The Baudrate of the communication (bytes per second)
+        /// Buffer to store messages found in the feed.
+        /// Needed because its possible that multiple messages are parsed from the data input
         /// </summary>
-        public int BaudRate { get { return serialPort.BaudRate; } }
+        private Queue<string> messages;
 
         /// <summary>
-        /// The serial port name
+        /// Marker that marks the mark the end of a message.
         /// </summary>
-        public string PortName { get { return serialPort.PortName; } }
+        public char MessageEndMarker { get; private set; }
 
         /// <summary>
-        /// Creates a Serial Messenger
+        /// The number of available messages which can be retrieved using GetNextMessage()
         /// </summary>
-        /// <param name="portName">The name of the serial port</param>
-        /// <param name="baudRate">The speed</param>
-        /// <param name="messageBuilder">The messagebuilder used</param>
-        public MessageBuilder(string portName, int baudRate, MessageReader messageReader)
+        /// <returns></returns>
+        public int MessageCount
         {
-            if (portName == null)
+            get
             {
-                throw new ArgumentNullException("portName");
-
+                return messages.Count;
             }
-
-            if (baudRate < 9600)
-            {
-                throw new ArgumentOutOfRangeException("baudRate");
-            }
-
-            if (messageReader == null)
-            {
-                throw new ArgumentNullException("messageBuilder");
-
-            }
-            serialPort = new SerialPort();
-            serialPort.BaudRate = baudRate;
-            serialPort.PortName = portName;
-
-            this.messageReader = messageReader;
         }
 
         /// <summary>
-        /// Connect to the serial port
+        /// Create a MessageBuilder instance.
         /// </summary>
-        public void Connect()
+        /// </param>
+        /// <param name="messageEndMarker">
+        /// Marker that is used to find the end of a message 
+        /// when trying to find messages in the buffered data.
+        /// </param>
+        public MessageBuilder(char messageEndMarker)
         {
-            if (!serialPort.IsOpen)
+            MessageEndMarker = messageEndMarker;
+            messages = new Queue<string>();
+            partlyMessage = null;
+        }
+
+        /// <summary>
+        /// Feeds data containing (possible) messages to the MessageBuilder.
+        /// After using Add, use GetMessage() to retrieve messages contained in the data.
+        /// 
+        /// Its possible that an incomplete message is contained in the data.
+        /// </summary>
+        /// <param name="data">
+        /// data from the feed containing possible messages.
+        /// </param>
+        public void Add(string data)
+        {
+            if (data == null)
             {
-                serialPort.Open();
-                if (serialPort.IsOpen)
+                throw new ArgumentNullException("data");
+            }
+
+            string message;
+            if (partlyMessage != null)
+            {
+                message = partlyMessage;
+                partlyMessage = null;
+            }
+            else
+            {
+                message = "";
+            }
+
+            foreach (char character in data)
+            {
+                if (character != MessageEndMarker)
                 {
-                    serialPort.DiscardInBuffer();
-                    serialPort.DiscardOutBuffer();
+                    message += character;
+                }
+                else
+                {
+                    messages.Enqueue(message);
+                    message = "";
                 }
             }
+            partlyMessage = message;
         }
 
+
         /// <summary>
-        /// Disconnect from the serial port
+        /// Gets the next message that was present in the MessageBuilder.
+        /// Use Add() to add data to the MessageBuilder from which messages should be extracted.
+        /// 
+        /// It's possible that multiple messages are present in the MessageBuilder. 
+        /// So call GetMessage() until it returns null after using Add().
         /// </summary>
-        public void Disconnect()
+        /// <returns>
+        /// The next message, or null if no message was present in the builder.
+        /// </returns>
+        public string GetNextMessage()
         {
-            if (serialPort.IsOpen)
+            if (messages.Count > 0)
             {
-                serialPort.Close();
-            }
-        }
-
-        /// <summary>
-        /// Gets the available serial port names.
-        /// </summary>
-        /// <returns>The names of the available serial ports</returns>
-        public string[] GetAvailablePortNames()
-        {
-            return SerialPort.GetPortNames();
-        }
-
-        /// <summary>
-        /// Checks connection status
-        /// </summary>
-        /// <returns>True is connected, else false</returns>
-        public bool IsConnected()
-        {
-            return serialPort.IsOpen;
-        }
-
-        /// <summary>
-        /// Sends the given message to the serial port.
-        /// </summary>
-        /// <param name="message">The message to send.</param>
-        /// <returns>true if the message was send, false otherwise.</returns>
-        public bool SendMessage(string message)
-        {
-            if (serialPort.IsOpen)
-            {
-                //try
-                //{
-                serialPort.Write(message + messageReader.MessageEndMarker);
-                return true;
-                //}
-                //catch (Exception exception) // Not very nice to catch Exception...but for now it's good enough.
-                //{
-                //   Debug.WriteLine("Could not write to serial port: " + exception.Message);
-                //}
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Reads data from the serialport and extracts the mesages
-        /// </summary>
-        /// <returns>An array with messages, of null if no (complete) messages were received (yet)</returns>
-        public string[] ReadMessages()
-        {
-            if (serialPort.IsOpen
-                && serialPort.BytesToRead > 0)
-            {
-                //try
-                //{
-                string data = serialPort.ReadExisting();
-                messageReader.Add(data);
-
-                int messageCount = messageReader.MessageCount;
-                if (messageCount > 0)
-                {
-                    string[] messages = new string[messageCount];
-                    for (int i = 0; i < messageCount; i++) // not very fail safe programming... 
-                    {
-                        messages[i] = messageReader.GetNextMessage();
-                    }
-                    return messages;
-                }
-
-                //ProcessMessages();
-                //}
-                //catch (Exception exception) // Not very nice to catch Exception...but for now it's good enough.
-                //{
-                //    Debug.WriteLine("Could not read from serial port: " + exception.Message);
-                //}
+                return messages.Dequeue();
             }
             return null;
+        }
+
+        /// <summary>
+        /// Clear all buffered messages and message data
+        /// </summary>
+        public void Clear()
+        {
+            messages.Clear();
+            partlyMessage = null;
         }
     }
 }
