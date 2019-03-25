@@ -108,28 +108,11 @@ namespace JuicyBalls
         private void buttonOpenChangePassword_Click(object sender, EventArgs e)
         {
             groupBoxChangePassword.Visible = true;
-            textBoxOldPassword.Visible = true;
-            textBoxNewPassword.Visible = true;
-            textBoxConfirmNewPassword.Visible = true;
-            labelOldPassword.Visible = true;
-            labelNewPassword.Visible = true;
-            labelConfirmNewPassword.Visible = true;
-            buttonChangePassword.Visible = true;
-            buttonCloseChangePassword.Visible = true;
         }
 
         private void buttonCloseChangePassword_Click(object sender, EventArgs e)
         {
             groupBoxChangePassword.Visible = false;
-            textBoxOldPassword.Visible = false;
-            textBoxNewPassword.Visible = false;
-            textBoxConfirmNewPassword.Visible = false;
-            labelOldPassword.Visible = false;
-            labelNewPassword.Visible = false;
-            labelConfirmNewPassword.Visible = false;
-            buttonChangePassword.Visible = false;
-            buttonCloseChangePassword.Visible = false;
-            buttonOpenChangePassword.Visible = true;
         }
 
         private void buttonDarkMode_Click(object sender, EventArgs e)
@@ -201,9 +184,9 @@ namespace JuicyBalls
             textBoxRegisterName.BackColor = Color.LightGray;
             textBoxRegisterPassword.BackColor = Color.LightGray;
             textBoxConfirmPassword.BackColor = Color.LightGray;
-            textBoxOldPassword.BackColor = Color.DimGray;
-            textBoxNewPassword.BackColor = Color.DimGray;
-            textBoxConfirmNewPassword.BackColor = Color.DimGray;
+            textBoxOldPassword.BackColor = Color.LightGray;
+            textBoxNewPassword.BackColor = Color.LightGray;
+            textBoxConfirmNewPassword.BackColor = Color.LightGray;
 
 
             //pictureboxes
@@ -219,5 +202,9 @@ namespace JuicyBalls
 
         }
 
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
