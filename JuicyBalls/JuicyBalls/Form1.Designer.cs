@@ -84,7 +84,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBoxStats = new System.Windows.Forms.ListBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnRefill5 = new System.Windows.Forms.Button();
             this.btnRefill4 = new System.Windows.Forms.Button();
@@ -114,6 +114,16 @@
             this.label24 = new System.Windows.Forms.Label();
             this.textBoxRegisterPassword = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBoxChangePassword = new System.Windows.Forms.GroupBox();
+            this.buttonCloseChangePassword = new System.Windows.Forms.Button();
+            this.buttonChangePassword = new System.Windows.Forms.Button();
+            this.textBoxConfirmNewPassword = new System.Windows.Forms.TextBox();
+            this.labelConfirmNewPassword = new System.Windows.Forms.Label();
+            this.textBoxNewPassword = new System.Windows.Forms.TextBox();
+            this.labelNewPassword = new System.Windows.Forms.Label();
+            this.textBoxOldPassword = new System.Windows.Forms.TextBox();
+            this.labelOldPassword = new System.Windows.Forms.Label();
+            this.buttonOpenChangePassword = new System.Windows.Forms.Button();
             this.groupBoxChangeName = new System.Windows.Forms.GroupBox();
             this.buttonCloseChangeName = new System.Windows.Forms.Button();
             this.buttonChangeName = new System.Windows.Forms.Button();
@@ -121,16 +131,9 @@
             this.textBoxNewName = new System.Windows.Forms.TextBox();
             this.buttonGoToLogin2 = new System.Windows.Forms.Button();
             this.buttonOpenChangeName = new System.Windows.Forms.Button();
-            this.buttonOpenChangePassword = new System.Windows.Forms.Button();
-            this.groupBoxChangePassword = new System.Windows.Forms.GroupBox();
-            this.labelOldPassword = new System.Windows.Forms.Label();
-            this.textBoxOldPassword = new System.Windows.Forms.TextBox();
-            this.labelNewPassword = new System.Windows.Forms.Label();
-            this.textBoxNewPassword = new System.Windows.Forms.TextBox();
-            this.labelConfirmNewPassword = new System.Windows.Forms.Label();
-            this.textBoxConfirmNewPassword = new System.Windows.Forms.TextBox();
-            this.buttonChangePassword = new System.Windows.Forms.Button();
-            this.buttonCloseChangePassword = new System.Windows.Forms.Button();
+            this.buttonDarkMode2 = new System.Windows.Forms.Button();
+            this.buttonDarkMode3 = new System.Windows.Forms.Button();
+            this.buttonDarkMode4 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -147,8 +150,8 @@
             this.tabPage3.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.groupBoxChangeName.SuspendLayout();
             this.groupBoxChangePassword.SuspendLayout();
+            this.groupBoxChangeName.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -195,11 +198,11 @@
             // 
             // buttonDarkMode
             // 
-            this.buttonDarkMode.Location = new System.Drawing.Point(896, 7);
+            this.buttonDarkMode.Location = new System.Drawing.Point(898, 6);
             this.buttonDarkMode.Name = "buttonDarkMode";
-            this.buttonDarkMode.Size = new System.Drawing.Size(122, 93);
+            this.buttonDarkMode.Size = new System.Drawing.Size(122, 23);
             this.buttonDarkMode.TabIndex = 17;
-            this.buttonDarkMode.Text = "button1";
+            this.buttonDarkMode.Text = "Darkmode";
             this.buttonDarkMode.UseVisualStyleBackColor = true;
             this.buttonDarkMode.Click += new System.EventHandler(this.buttonDarkMode_Click);
             // 
@@ -462,6 +465,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.buttonDarkMode2);
             this.tabPage2.Controls.Add(this.groupBox9);
             this.tabPage2.Controls.Add(this.btnTurn);
             this.tabPage2.Controls.Add(this.btnStopGame);
@@ -709,7 +713,7 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.listBox2);
+            this.groupBox7.Controls.Add(this.listBoxStats);
             this.groupBox7.Location = new System.Drawing.Point(741, 218);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(232, 293);
@@ -717,14 +721,17 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Statistieken";
             // 
-            // listBox2
+            // listBoxStats
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(6, 22);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(220, 260);
-            this.listBox2.TabIndex = 0;
+            this.listBoxStats.FormattingEnabled = true;
+            this.listBoxStats.ItemHeight = 16;
+            this.listBoxStats.Items.AddRange(new object[] {
+            "Test",
+            "Lmao"});
+            this.listBoxStats.Location = new System.Drawing.Point(6, 22);
+            this.listBoxStats.Name = "listBoxStats";
+            this.listBoxStats.Size = new System.Drawing.Size(220, 260);
+            this.listBoxStats.TabIndex = 0;
             // 
             // groupBox6
             // 
@@ -889,6 +896,9 @@
             // 
             this.listBoxLog.FormattingEnabled = true;
             this.listBoxLog.ItemHeight = 16;
+            this.listBoxLog.Items.AddRange(new object[] {
+            "Test",
+            "Lmao"});
             this.listBoxLog.Location = new System.Drawing.Point(6, 21);
             this.listBoxLog.Name = "listBoxLog";
             this.listBoxLog.Size = new System.Drawing.Size(220, 148);
@@ -896,6 +906,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.buttonDarkMode3);
             this.tabPage3.Controls.Add(this.btnGoToLogin);
             this.tabPage3.Controls.Add(this.groupBox10);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
@@ -908,7 +919,7 @@
             // btnGoToLogin
             // 
             this.btnGoToLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGoToLogin.Location = new System.Drawing.Point(8, 3);
+            this.btnGoToLogin.Location = new System.Drawing.Point(3, 3);
             this.btnGoToLogin.Name = "btnGoToLogin";
             this.btnGoToLogin.Size = new System.Drawing.Size(152, 61);
             this.btnGoToLogin.TabIndex = 9;
@@ -992,6 +1003,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.buttonDarkMode4);
             this.tabPage4.Controls.Add(this.groupBoxChangePassword);
             this.tabPage4.Controls.Add(this.buttonOpenChangePassword);
             this.tabPage4.Controls.Add(this.groupBoxChangeName);
@@ -1003,6 +1015,104 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Settings";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxChangePassword
+            // 
+            this.groupBoxChangePassword.Controls.Add(this.buttonCloseChangePassword);
+            this.groupBoxChangePassword.Controls.Add(this.buttonChangePassword);
+            this.groupBoxChangePassword.Controls.Add(this.textBoxConfirmNewPassword);
+            this.groupBoxChangePassword.Controls.Add(this.labelConfirmNewPassword);
+            this.groupBoxChangePassword.Controls.Add(this.textBoxNewPassword);
+            this.groupBoxChangePassword.Controls.Add(this.labelNewPassword);
+            this.groupBoxChangePassword.Controls.Add(this.textBoxOldPassword);
+            this.groupBoxChangePassword.Controls.Add(this.labelOldPassword);
+            this.groupBoxChangePassword.Location = new System.Drawing.Point(410, 81);
+            this.groupBoxChangePassword.Name = "groupBoxChangePassword";
+            this.groupBoxChangePassword.Size = new System.Drawing.Size(210, 244);
+            this.groupBoxChangePassword.TabIndex = 13;
+            this.groupBoxChangePassword.TabStop = false;
+            this.groupBoxChangePassword.Visible = false;
+            // 
+            // buttonCloseChangePassword
+            // 
+            this.buttonCloseChangePassword.Location = new System.Drawing.Point(179, 14);
+            this.buttonCloseChangePassword.Name = "buttonCloseChangePassword";
+            this.buttonCloseChangePassword.Size = new System.Drawing.Size(25, 23);
+            this.buttonCloseChangePassword.TabIndex = 15;
+            this.buttonCloseChangePassword.Text = "X";
+            this.buttonCloseChangePassword.UseVisualStyleBackColor = true;
+            this.buttonCloseChangePassword.Click += new System.EventHandler(this.buttonCloseChangePassword_Click);
+            // 
+            // buttonChangePassword
+            // 
+            this.buttonChangePassword.Location = new System.Drawing.Point(7, 171);
+            this.buttonChangePassword.Name = "buttonChangePassword";
+            this.buttonChangePassword.Size = new System.Drawing.Size(197, 65);
+            this.buttonChangePassword.TabIndex = 14;
+            this.buttonChangePassword.Text = "Change Password";
+            this.buttonChangePassword.UseVisualStyleBackColor = true;
+            this.buttonChangePassword.Click += new System.EventHandler(this.buttonChangePassword_Click);
+            // 
+            // textBoxConfirmNewPassword
+            // 
+            this.textBoxConfirmNewPassword.Location = new System.Drawing.Point(7, 142);
+            this.textBoxConfirmNewPassword.Name = "textBoxConfirmNewPassword";
+            this.textBoxConfirmNewPassword.Size = new System.Drawing.Size(197, 22);
+            this.textBoxConfirmNewPassword.TabIndex = 5;
+            this.textBoxConfirmNewPassword.UseSystemPasswordChar = true;
+            // 
+            // labelConfirmNewPassword
+            // 
+            this.labelConfirmNewPassword.AutoSize = true;
+            this.labelConfirmNewPassword.Location = new System.Drawing.Point(7, 122);
+            this.labelConfirmNewPassword.Name = "labelConfirmNewPassword";
+            this.labelConfirmNewPassword.Size = new System.Drawing.Size(144, 17);
+            this.labelConfirmNewPassword.TabIndex = 4;
+            this.labelConfirmNewPassword.Text = "Bevestig Wachtwoord";
+            // 
+            // textBoxNewPassword
+            // 
+            this.textBoxNewPassword.Location = new System.Drawing.Point(7, 93);
+            this.textBoxNewPassword.Name = "textBoxNewPassword";
+            this.textBoxNewPassword.Size = new System.Drawing.Size(197, 22);
+            this.textBoxNewPassword.TabIndex = 3;
+            this.textBoxNewPassword.UseSystemPasswordChar = true;
+            // 
+            // labelNewPassword
+            // 
+            this.labelNewPassword.AutoSize = true;
+            this.labelNewPassword.Location = new System.Drawing.Point(7, 73);
+            this.labelNewPassword.Name = "labelNewPassword";
+            this.labelNewPassword.Size = new System.Drawing.Size(128, 17);
+            this.labelNewPassword.TabIndex = 2;
+            this.labelNewPassword.Text = "Nieuw Wachtwoord";
+            // 
+            // textBoxOldPassword
+            // 
+            this.textBoxOldPassword.Location = new System.Drawing.Point(7, 43);
+            this.textBoxOldPassword.Name = "textBoxOldPassword";
+            this.textBoxOldPassword.Size = new System.Drawing.Size(197, 22);
+            this.textBoxOldPassword.TabIndex = 1;
+            this.textBoxOldPassword.UseSystemPasswordChar = true;
+            // 
+            // labelOldPassword
+            // 
+            this.labelOldPassword.AutoSize = true;
+            this.labelOldPassword.Location = new System.Drawing.Point(7, 22);
+            this.labelOldPassword.Name = "labelOldPassword";
+            this.labelOldPassword.Size = new System.Drawing.Size(130, 17);
+            this.labelOldPassword.TabIndex = 0;
+            this.labelOldPassword.Text = "Huidig Wachtwoord";
+            // 
+            // buttonOpenChangePassword
+            // 
+            this.buttonOpenChangePassword.Location = new System.Drawing.Point(410, 331);
+            this.buttonOpenChangePassword.Name = "buttonOpenChangePassword";
+            this.buttonOpenChangePassword.Size = new System.Drawing.Size(210, 65);
+            this.buttonOpenChangePassword.TabIndex = 12;
+            this.buttonOpenChangePassword.Text = "Change Password";
+            this.buttonOpenChangePassword.UseVisualStyleBackColor = true;
+            this.buttonOpenChangePassword.Click += new System.EventHandler(this.buttonOpenChangePassword_Click);
             // 
             // groupBoxChangeName
             // 
@@ -1060,7 +1170,7 @@
             // buttonGoToLogin2
             // 
             this.buttonGoToLogin2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGoToLogin2.Location = new System.Drawing.Point(8, 3);
+            this.buttonGoToLogin2.Location = new System.Drawing.Point(3, 3);
             this.buttonGoToLogin2.Name = "buttonGoToLogin2";
             this.buttonGoToLogin2.Size = new System.Drawing.Size(152, 61);
             this.buttonGoToLogin2.TabIndex = 10;
@@ -1079,109 +1189,41 @@
             this.buttonOpenChangeName.Visible = false;
             this.buttonOpenChangeName.Click += new System.EventHandler(this.buttonOpenChangeName_Click);
             // 
-            // buttonOpenChangePassword
+            // buttonDarkMode2
             // 
-            this.buttonOpenChangePassword.Location = new System.Drawing.Point(410, 331);
-            this.buttonOpenChangePassword.Name = "buttonOpenChangePassword";
-            this.buttonOpenChangePassword.Size = new System.Drawing.Size(210, 65);
-            this.buttonOpenChangePassword.TabIndex = 12;
-            this.buttonOpenChangePassword.Text = "Change Password";
-            this.buttonOpenChangePassword.UseVisualStyleBackColor = true;
-            this.buttonOpenChangePassword.Click += new System.EventHandler(this.buttonOpenChangePassword_Click);
+            this.buttonDarkMode2.Location = new System.Drawing.Point(898, 6);
+            this.buttonDarkMode2.Name = "buttonDarkMode2";
+            this.buttonDarkMode2.Size = new System.Drawing.Size(122, 29);
+            this.buttonDarkMode2.TabIndex = 18;
+            this.buttonDarkMode2.Text = "Darkmode";
+            this.buttonDarkMode2.UseVisualStyleBackColor = true;
+            this.buttonDarkMode2.Click += new System.EventHandler(this.buttonDarkMode_Click);
             // 
-            // groupBoxChangePassword
+            // buttonDarkMode3
             // 
-            this.groupBoxChangePassword.Controls.Add(this.buttonCloseChangePassword);
-            this.groupBoxChangePassword.Controls.Add(this.buttonChangePassword);
-            this.groupBoxChangePassword.Controls.Add(this.textBoxConfirmNewPassword);
-            this.groupBoxChangePassword.Controls.Add(this.labelConfirmNewPassword);
-            this.groupBoxChangePassword.Controls.Add(this.textBoxNewPassword);
-            this.groupBoxChangePassword.Controls.Add(this.labelNewPassword);
-            this.groupBoxChangePassword.Controls.Add(this.textBoxOldPassword);
-            this.groupBoxChangePassword.Controls.Add(this.labelOldPassword);
-            this.groupBoxChangePassword.Location = new System.Drawing.Point(410, 81);
-            this.groupBoxChangePassword.Name = "groupBoxChangePassword";
-            this.groupBoxChangePassword.Size = new System.Drawing.Size(210, 244);
-            this.groupBoxChangePassword.TabIndex = 13;
-            this.groupBoxChangePassword.TabStop = false;
-            this.groupBoxChangePassword.Visible = false;
+            this.buttonDarkMode3.Location = new System.Drawing.Point(900, 7);
+            this.buttonDarkMode3.Name = "buttonDarkMode3";
+            this.buttonDarkMode3.Size = new System.Drawing.Size(122, 27);
+            this.buttonDarkMode3.TabIndex = 18;
+            this.buttonDarkMode3.Text = "Darkmode";
+            this.buttonDarkMode3.UseVisualStyleBackColor = true;
+            this.buttonDarkMode3.Click += new System.EventHandler(this.buttonDarkMode_Click);
             // 
-            // labelOldPassword
+            // buttonDarkMode4
             // 
-            this.labelOldPassword.AutoSize = true;
-            this.labelOldPassword.Location = new System.Drawing.Point(7, 22);
-            this.labelOldPassword.Name = "labelOldPassword";
-            this.labelOldPassword.Size = new System.Drawing.Size(130, 17);
-            this.labelOldPassword.TabIndex = 0;
-            this.labelOldPassword.Text = "Huidig Wachtwoord";
-            // 
-            // textBoxOldPassword
-            // 
-            this.textBoxOldPassword.Location = new System.Drawing.Point(7, 43);
-            this.textBoxOldPassword.Name = "textBoxOldPassword";
-            this.textBoxOldPassword.Size = new System.Drawing.Size(197, 22);
-            this.textBoxOldPassword.TabIndex = 1;
-            this.textBoxOldPassword.UseSystemPasswordChar = true;
-            // 
-            // labelNewPassword
-            // 
-            this.labelNewPassword.AutoSize = true;
-            this.labelNewPassword.Location = new System.Drawing.Point(7, 73);
-            this.labelNewPassword.Name = "labelNewPassword";
-            this.labelNewPassword.Size = new System.Drawing.Size(128, 17);
-            this.labelNewPassword.TabIndex = 2;
-            this.labelNewPassword.Text = "Nieuw Wachtwoord";
-            // 
-            // textBoxNewPassword
-            // 
-            this.textBoxNewPassword.Location = new System.Drawing.Point(7, 93);
-            this.textBoxNewPassword.Name = "textBoxNewPassword";
-            this.textBoxNewPassword.Size = new System.Drawing.Size(197, 22);
-            this.textBoxNewPassword.TabIndex = 3;
-            this.textBoxNewPassword.UseSystemPasswordChar = true;
-            // 
-            // labelConfirmNewPassword
-            // 
-            this.labelConfirmNewPassword.AutoSize = true;
-            this.labelConfirmNewPassword.Location = new System.Drawing.Point(7, 122);
-            this.labelConfirmNewPassword.Name = "labelConfirmNewPassword";
-            this.labelConfirmNewPassword.Size = new System.Drawing.Size(144, 17);
-            this.labelConfirmNewPassword.TabIndex = 4;
-            this.labelConfirmNewPassword.Text = "Bevestig Wachtwoord";
-            // 
-            // textBoxConfirmNewPassword
-            // 
-            this.textBoxConfirmNewPassword.Location = new System.Drawing.Point(7, 142);
-            this.textBoxConfirmNewPassword.Name = "textBoxConfirmNewPassword";
-            this.textBoxConfirmNewPassword.Size = new System.Drawing.Size(197, 22);
-            this.textBoxConfirmNewPassword.TabIndex = 5;
-            this.textBoxConfirmNewPassword.UseSystemPasswordChar = true;
-            // 
-            // buttonChangePassword
-            // 
-            this.buttonChangePassword.Location = new System.Drawing.Point(7, 171);
-            this.buttonChangePassword.Name = "buttonChangePassword";
-            this.buttonChangePassword.Size = new System.Drawing.Size(197, 65);
-            this.buttonChangePassword.TabIndex = 14;
-            this.buttonChangePassword.Text = "Change Password";
-            this.buttonChangePassword.UseVisualStyleBackColor = true;
-            this.buttonChangePassword.Click += new System.EventHandler(this.buttonChangePassword_Click);
-            // 
-            // buttonCloseChangePassword
-            // 
-            this.buttonCloseChangePassword.Location = new System.Drawing.Point(179, 14);
-            this.buttonCloseChangePassword.Name = "buttonCloseChangePassword";
-            this.buttonCloseChangePassword.Size = new System.Drawing.Size(25, 23);
-            this.buttonCloseChangePassword.TabIndex = 15;
-            this.buttonCloseChangePassword.Text = "X";
-            this.buttonCloseChangePassword.UseVisualStyleBackColor = true;
-            this.buttonCloseChangePassword.Click += new System.EventHandler(this.buttonCloseChangePassword_Click);
+            this.buttonDarkMode4.Location = new System.Drawing.Point(898, 7);
+            this.buttonDarkMode4.Name = "buttonDarkMode4";
+            this.buttonDarkMode4.Size = new System.Drawing.Size(122, 28);
+            this.buttonDarkMode4.TabIndex = 18;
+            this.buttonDarkMode4.Text = "Darkmode";
+            this.buttonDarkMode4.UseVisualStyleBackColor = true;
+            this.buttonDarkMode4.Click += new System.EventHandler(this.buttonDarkMode_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 598);
+            this.ClientSize = new System.Drawing.Size(1034, 612);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -1209,10 +1251,10 @@
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.groupBoxChangeName.ResumeLayout(false);
-            this.groupBoxChangeName.PerformLayout();
             this.groupBoxChangePassword.ResumeLayout(false);
             this.groupBoxChangePassword.PerformLayout();
+            this.groupBoxChangeName.ResumeLayout(false);
+            this.groupBoxChangeName.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1273,7 +1315,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listBoxStats;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button btnRefill5;
         private System.Windows.Forms.Button btnRefill4;
@@ -1322,6 +1364,9 @@
         private System.Windows.Forms.TextBox textBoxConfirmNewPassword;
         private System.Windows.Forms.Button buttonChangePassword;
         private System.Windows.Forms.Button buttonCloseChangePassword;
+        private System.Windows.Forms.Button buttonDarkMode2;
+        private System.Windows.Forms.Button buttonDarkMode3;
+        private System.Windows.Forms.Button buttonDarkMode4;
     }
 }
 
