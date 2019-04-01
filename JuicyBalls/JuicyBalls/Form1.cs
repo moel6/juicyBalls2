@@ -453,9 +453,20 @@ namespace JuicyBalls
             if (textBoxRegisterPassword.Text == textBoxConfirmPassword.Text)
             {
                 account.Username = textBoxRegisterName.Text;
-                account.CheckedPassword = textBoxRegisterPassword.Text;
-                account.PasswordEncryption();
-                dbclass.CreateUser(account);
+                dbclass.CheckExistingUsers(account);
+                if (!account.accounts.Contains(account.Username))
+                {
+                    account.CheckedPassword = textBoxRegisterPassword.Text;
+                    account.PasswordEncryption();
+                    dbclass.CreateUser(account);
+                }
+                else
+                {
+                    MessageBox.Show("Username already taken!", "Error", MessageBoxButtons.OK);
+                    return;
+                }
+
+
             }
         }
 
