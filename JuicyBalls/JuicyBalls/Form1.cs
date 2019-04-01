@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Library;
 
 namespace JuicyBalls
 {
@@ -25,7 +26,8 @@ namespace JuicyBalls
         // TODO: Below fill in the actual Arduino COM port.
         private string port = "COM3";
         private int speed = 9600;
-
+        Account account = new Account();
+        DBClass dbclass = new DBClass();
 
         public Form1()
         {
@@ -448,6 +450,13 @@ namespace JuicyBalls
 
         private void btnRegisterAccount_Click(object sender, EventArgs e)
         {
+            if (textBoxRegisterPassword.Text == textBoxConfirmPassword.Text)
+            {
+                account.Username = textBoxRegisterName.Text;
+                account.CheckedPassword = textBoxRegisterPassword.Text;
+                account.PasswordEncryption();
+                dbclass.CreateUser(account);
+            }
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
