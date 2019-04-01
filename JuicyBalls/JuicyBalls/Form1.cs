@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Drawing;
 using System.Threading;
-using System.Drawing;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,7 +21,7 @@ namespace JuicyBalls
         bool darkmode = false;
 
         private Library.SerialMessenger serialMessenger;
-        private Timer readMessageTimer;
+        private System.Windows.Forms.Timer readMessageTimer;
         // TODO: Below fill in the actual Arduino COM port.
         private string port = "COM3";
         private int speed = 9600;
@@ -40,7 +38,7 @@ namespace JuicyBalls
             Library.MessageBuilder messageBuilder = new Library.MessageBuilder('\n');
             serialMessenger = new Library.SerialMessenger(port, speed, messageBuilder);
 
-            readMessageTimer = new Timer();
+            readMessageTimer = new System.Windows.Forms.Timer();
             readMessageTimer.Interval = 10;
             readMessageTimer.Tick += new EventHandler(ReadMessageTimer_Tick);
         }
@@ -442,7 +440,7 @@ namespace JuicyBalls
                 buttonDarkMode2.Text = "Darkmode";
                 buttonDarkMode3.Text = "Darkmode";
                 buttonDarkMode4.Text = "Darkmode";
-<
+
                 //bool
                 darkmode = false;
             }
@@ -472,7 +470,5 @@ namespace JuicyBalls
         }
     }
 }
-    }
-}
-}
+
 
