@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading;
+using System.Drawing;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +32,9 @@ namespace JuicyBalls
         public Form1()
         {
             InitializeComponent();
+
+            //Hides the tabcontrol headers
+            tabControl1.Appearance = TabAppearance.FlatButtons; tabControl1.ItemSize = new Size(0, 1); tabControl1.SizeMode = TabSizeMode.Fixed;
 
             //MessageBuilder messageBuilder = new MessageBuilder('#', '%');
             Library.MessageBuilder messageBuilder = new Library.MessageBuilder('\n');
@@ -437,6 +442,7 @@ namespace JuicyBalls
                 buttonDarkMode2.Text = "Darkmode";
                 buttonDarkMode3.Text = "Darkmode";
                 buttonDarkMode4.Text = "Darkmode";
+<
                 //bool
                 darkmode = false;
             }
@@ -449,6 +455,23 @@ namespace JuicyBalls
         private void tabPage1_Click(object sender, EventArgs e)
         {
         }
+
+        private void btnStartGame_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 1;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBoxJumpScare_MouseLeave(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://cdn.discordapp.com/attachments/537810314167844865/561344507807793153/image0.jpg");
+        }
+    }
+}
     }
 }
 }

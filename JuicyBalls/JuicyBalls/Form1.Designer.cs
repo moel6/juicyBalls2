@@ -60,6 +60,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxPasswordPlayer1 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.buttonDarkMode2 = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.labelCurrentTurn = new System.Windows.Forms.Label();
             this.labelNextTurn = new System.Windows.Forms.Label();
@@ -104,6 +105,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.listBoxLog = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.buttonDarkMode3 = new System.Windows.Forms.Button();
             this.btnGoToLogin = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.textBoxConfirmPassword = new System.Windows.Forms.TextBox();
@@ -114,6 +116,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.textBoxRegisterPassword = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.buttonDarkMode4 = new System.Windows.Forms.Button();
             this.groupBoxChangePassword = new System.Windows.Forms.GroupBox();
             this.buttonCloseChangePassword = new System.Windows.Forms.Button();
             this.buttonChangePassword = new System.Windows.Forms.Button();
@@ -131,6 +134,7 @@
             this.textBoxNewName = new System.Windows.Forms.TextBox();
             this.buttonGoToLogin2 = new System.Windows.Forms.Button();
             this.buttonOpenChangeName = new System.Windows.Forms.Button();
+            this.pictureBoxJumpScare = new System.Windows.Forms.PictureBox();
             this.buttonDarkMode2 = new System.Windows.Forms.Button();
             this.buttonDarkMode3 = new System.Windows.Forms.Button();
             this.buttonDarkMode4 = new System.Windows.Forms.Button();
@@ -152,6 +156,7 @@
             this.tabPage4.SuspendLayout();
             this.groupBoxChangePassword.SuspendLayout();
             this.groupBoxChangeName.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxJumpScare)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -200,7 +205,9 @@
             // 
             this.buttonDarkMode.Location = new System.Drawing.Point(898, 6);
             this.buttonDarkMode.Name = "buttonDarkMode";
-            this.buttonDarkMode.Size = new System.Drawing.Size(122, 23);
+
+            this.buttonDarkMode.Size = new System.Drawing.Size(122, 27);
+
             this.buttonDarkMode.TabIndex = 17;
             this.buttonDarkMode.Text = "Darkmode";
             this.buttonDarkMode.UseVisualStyleBackColor = true;
@@ -225,6 +232,7 @@
             this.btnStartGame.TabIndex = 14;
             this.btnStartGame.Text = "Start";
             this.btnStartGame.UseVisualStyleBackColor = true;
+            this.btnStartGame.Click += new System.EventHandler(this.btnStartGame_Click);
             // 
             // groupBox4
             // 
@@ -238,7 +246,7 @@
             this.groupBox4.Size = new System.Drawing.Size(186, 241);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Spler 4";
+            this.groupBox4.Text = "Speler 4";
             // 
             // btnConfirmPlayer4
             // 
@@ -465,6 +473,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.pictureBoxJumpScare);
             this.tabPage2.Controls.Add(this.buttonDarkMode2);
             this.tabPage2.Controls.Add(this.groupBox9);
             this.tabPage2.Controls.Add(this.btnTurn);
@@ -481,6 +490,17 @@
             this.tabPage2.Text = "Game";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // buttonDarkMode2
+            // 
+            this.buttonDarkMode2.Location = new System.Drawing.Point(898, 6);
+            this.buttonDarkMode2.Name = "buttonDarkMode2";
+            this.buttonDarkMode2.Size = new System.Drawing.Size(122, 29);
+            this.buttonDarkMode2.TabIndex = 18;
+            this.buttonDarkMode2.Text = "Darkmode";
+            this.buttonDarkMode2.UseVisualStyleBackColor = true;
+            this.buttonDarkMode2.Click += new System.EventHandler(this.buttonDarkMode_Click);
+            // 
+
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.labelCurrentTurn);
@@ -916,6 +936,16 @@
             this.tabPage3.Text = "Register";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // buttonDarkMode3
+            // 
+            this.buttonDarkMode3.Location = new System.Drawing.Point(900, 7);
+            this.buttonDarkMode3.Name = "buttonDarkMode3";
+            this.buttonDarkMode3.Size = new System.Drawing.Size(122, 27);
+            this.buttonDarkMode3.TabIndex = 18;
+            this.buttonDarkMode3.Text = "Darkmode";
+            this.buttonDarkMode3.UseVisualStyleBackColor = true;
+            this.buttonDarkMode3.Click += new System.EventHandler(this.buttonDarkMode_Click);
+            // 
             // btnGoToLogin
             // 
             this.btnGoToLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1016,6 +1046,18 @@
             this.tabPage4.Text = "Settings";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+
+            // buttonDarkMode4
+            // 
+            this.buttonDarkMode4.Location = new System.Drawing.Point(898, 7);
+            this.buttonDarkMode4.Name = "buttonDarkMode4";
+            this.buttonDarkMode4.Size = new System.Drawing.Size(122, 28);
+            this.buttonDarkMode4.TabIndex = 18;
+            this.buttonDarkMode4.Text = "Darkmode";
+            this.buttonDarkMode4.UseVisualStyleBackColor = true;
+            this.buttonDarkMode4.Click += new System.EventHandler(this.buttonDarkMode_Click);
+            // 
+
             // groupBoxChangePassword
             // 
             this.groupBoxChangePassword.Controls.Add(this.buttonCloseChangePassword);
@@ -1189,6 +1231,16 @@
             this.buttonOpenChangeName.Visible = false;
             this.buttonOpenChangeName.Click += new System.EventHandler(this.buttonOpenChangeName_Click);
             // 
+
+            // pictureBoxJumpScare
+            // 
+            this.pictureBoxJumpScare.Location = new System.Drawing.Point(8, 6);
+            this.pictureBoxJumpScare.Name = "pictureBoxJumpScare";
+            this.pictureBoxJumpScare.Size = new System.Drawing.Size(19, 10);
+            this.pictureBoxJumpScare.TabIndex = 20;
+            this.pictureBoxJumpScare.TabStop = false;
+            this.pictureBoxJumpScare.MouseLeave += new System.EventHandler(this.pictureBoxJumpScare_MouseLeave);
+
             // buttonDarkMode2
             // 
             this.buttonDarkMode2.Location = new System.Drawing.Point(898, 6);
@@ -1218,6 +1270,7 @@
             this.buttonDarkMode4.Text = "Darkmode";
             this.buttonDarkMode4.UseVisualStyleBackColor = true;
             this.buttonDarkMode4.Click += new System.EventHandler(this.buttonDarkMode_Click);
+
             // 
             // Form1
             // 
@@ -1255,6 +1308,9 @@
             this.groupBoxChangePassword.PerformLayout();
             this.groupBoxChangeName.ResumeLayout(false);
             this.groupBoxChangeName.PerformLayout();
+
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxJumpScare)).EndInit();
+
             this.ResumeLayout(false);
 
         }
@@ -1367,6 +1423,8 @@
         private System.Windows.Forms.Button buttonDarkMode2;
         private System.Windows.Forms.Button buttonDarkMode3;
         private System.Windows.Forms.Button buttonDarkMode4;
+        private System.Windows.Forms.PictureBox pictureBoxJumpScare;
+
     }
 }
 
