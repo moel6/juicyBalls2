@@ -135,6 +135,9 @@
             this.buttonGoToLogin2 = new System.Windows.Forms.Button();
             this.buttonOpenChangeName = new System.Windows.Forms.Button();
             this.pictureBoxJumpScare = new System.Windows.Forms.PictureBox();
+            this.buttonDarkMode2 = new System.Windows.Forms.Button();
+            this.buttonDarkMode3 = new System.Windows.Forms.Button();
+            this.buttonDarkMode4 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -202,7 +205,9 @@
             // 
             this.buttonDarkMode.Location = new System.Drawing.Point(898, 6);
             this.buttonDarkMode.Name = "buttonDarkMode";
+
             this.buttonDarkMode.Size = new System.Drawing.Size(122, 27);
+
             this.buttonDarkMode.TabIndex = 17;
             this.buttonDarkMode.Text = "Darkmode";
             this.buttonDarkMode.UseVisualStyleBackColor = true;
@@ -495,6 +500,7 @@
             this.buttonDarkMode2.UseVisualStyleBackColor = true;
             this.buttonDarkMode2.Click += new System.EventHandler(this.buttonDarkMode_Click);
             // 
+
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.labelCurrentTurn);
@@ -1040,6 +1046,7 @@
             this.tabPage4.Text = "Settings";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+
             // buttonDarkMode4
             // 
             this.buttonDarkMode4.Location = new System.Drawing.Point(898, 7);
@@ -1050,6 +1057,7 @@
             this.buttonDarkMode4.UseVisualStyleBackColor = true;
             this.buttonDarkMode4.Click += new System.EventHandler(this.buttonDarkMode_Click);
             // 
+
             // groupBoxChangePassword
             // 
             this.groupBoxChangePassword.Controls.Add(this.buttonCloseChangePassword);
@@ -1223,6 +1231,7 @@
             this.buttonOpenChangeName.Visible = false;
             this.buttonOpenChangeName.Click += new System.EventHandler(this.buttonOpenChangeName_Click);
             // 
+
             // pictureBoxJumpScare
             // 
             this.pictureBoxJumpScare.Location = new System.Drawing.Point(8, 6);
@@ -1231,6 +1240,37 @@
             this.pictureBoxJumpScare.TabIndex = 20;
             this.pictureBoxJumpScare.TabStop = false;
             this.pictureBoxJumpScare.MouseLeave += new System.EventHandler(this.pictureBoxJumpScare_MouseLeave);
+
+            // buttonDarkMode2
+            // 
+            this.buttonDarkMode2.Location = new System.Drawing.Point(898, 6);
+            this.buttonDarkMode2.Name = "buttonDarkMode2";
+            this.buttonDarkMode2.Size = new System.Drawing.Size(122, 29);
+            this.buttonDarkMode2.TabIndex = 18;
+            this.buttonDarkMode2.Text = "Darkmode";
+            this.buttonDarkMode2.UseVisualStyleBackColor = true;
+            this.buttonDarkMode2.Click += new System.EventHandler(this.buttonDarkMode_Click);
+            // 
+            // buttonDarkMode3
+            // 
+            this.buttonDarkMode3.Location = new System.Drawing.Point(900, 7);
+            this.buttonDarkMode3.Name = "buttonDarkMode3";
+            this.buttonDarkMode3.Size = new System.Drawing.Size(122, 27);
+            this.buttonDarkMode3.TabIndex = 18;
+            this.buttonDarkMode3.Text = "Darkmode";
+            this.buttonDarkMode3.UseVisualStyleBackColor = true;
+            this.buttonDarkMode3.Click += new System.EventHandler(this.buttonDarkMode_Click);
+            // 
+            // buttonDarkMode4
+            // 
+            this.buttonDarkMode4.Location = new System.Drawing.Point(898, 7);
+            this.buttonDarkMode4.Name = "buttonDarkMode4";
+            this.buttonDarkMode4.Size = new System.Drawing.Size(122, 28);
+            this.buttonDarkMode4.TabIndex = 18;
+            this.buttonDarkMode4.Text = "Darkmode";
+            this.buttonDarkMode4.UseVisualStyleBackColor = true;
+            this.buttonDarkMode4.Click += new System.EventHandler(this.buttonDarkMode_Click);
+
             // 
             // Form1
             // 
@@ -1268,7 +1308,9 @@
             this.groupBoxChangePassword.PerformLayout();
             this.groupBoxChangeName.ResumeLayout(false);
             this.groupBoxChangeName.PerformLayout();
+
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxJumpScare)).EndInit();
+
             this.ResumeLayout(false);
 
         }
@@ -1382,6 +1424,7 @@
         private System.Windows.Forms.Button buttonDarkMode3;
         private System.Windows.Forms.Button buttonDarkMode4;
         private System.Windows.Forms.PictureBox pictureBoxJumpScare;
+
     }
 }
 
