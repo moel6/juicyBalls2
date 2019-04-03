@@ -202,7 +202,7 @@ namespace JuicyBalls
                 MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
                 return;
             }
-            else if (account.LoggedInAccounts.Contains(account))
+            else if (account.LoggedInAccounts.Contains(account.Username))
             {
                 MessageBox.Show("User already signed in!","Error");
                 textBoxNamePlayer1.Clear();
@@ -213,7 +213,7 @@ namespace JuicyBalls
             {
                 MessageBox.Show("Welcome " + account.Username);
                 textBoxPasswordPlayer1.Clear();
-                account.LoggedInAccounts.Add(account);
+                account.LoggedInAccounts.Add(account.Username);
             }
         }
 
@@ -522,7 +522,7 @@ namespace JuicyBalls
                 MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
                 return;
             }
-            else if (account.LoggedInAccounts.Contains(account))
+            else if (account.LoggedInAccounts.Contains(account.Username))
             {
                 MessageBox.Show("User already signed in!", "Error");
                 textBoxNamePlayer2.Clear();
@@ -532,6 +532,7 @@ namespace JuicyBalls
             else
             {
                 MessageBox.Show("Welcome " + account.Username);
+                account.LoggedInAccounts.Add(account.Username);
                 textBoxPasswordPlayer2.Clear();
             }
         }
@@ -547,7 +548,7 @@ namespace JuicyBalls
                 MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
                 return;
             }
-            else if (account.LoggedInAccounts.Contains(account))
+            else if (account.LoggedInAccounts.Contains(account.Username))
             {
                 MessageBox.Show("User already signed in!", "Error");
                 textBoxNamePlayer3.Clear();
@@ -557,6 +558,7 @@ namespace JuicyBalls
             else
             {
                 MessageBox.Show("Welcome " + account.Username);
+                account.LoggedInAccounts.Add(account.Username);
                 textBoxPasswordPlayer3.Clear();
             }
         }
@@ -572,7 +574,7 @@ namespace JuicyBalls
                 MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
                 return;
             }
-            else if (account.LoggedInAccounts.Contains(account))
+            else if (account.LoggedInAccounts.Contains(account.Username))
             {
                 MessageBox.Show("User already signed in!", "Error");
                 textBoxNamePlayer4.Clear();
@@ -582,6 +584,7 @@ namespace JuicyBalls
             else
             {
                 MessageBox.Show("Welcome " + account.Username);
+                account.LoggedInAccounts.Add(account.Username);
                 textBoxPasswordPlayer4.Clear();
             }
         }
