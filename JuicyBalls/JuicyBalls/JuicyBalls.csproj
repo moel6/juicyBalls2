@@ -86,7 +86,6 @@
       <Name>Library</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Images\Logo.png" />
   </ItemGroup>

@@ -15,6 +15,7 @@ namespace Library
         public bool IsLoggedIn;
         private int id;
         public List<string> accounts = new List<string>();
+        public List<Account> LoggedInAccounts = new List<Account>();
 
         private string DBPassword;
 

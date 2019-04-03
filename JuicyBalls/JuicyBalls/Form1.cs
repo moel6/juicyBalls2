@@ -14,8 +14,11 @@ using Library;
 
 namespace JuicyBalls
 {
+    
     public partial class Form1 : Form
     {
+        DBClass dbclass = new DBClass();
+        private Account account = new Account();
         private bool signin1 = false;
         private string password = "Test";
         private string name = "Test";
@@ -26,8 +29,7 @@ namespace JuicyBalls
         // TODO: Below fill in the actual Arduino COM port.
         private string port = "COM3";
         private int speed = 9600;
-        Account account = new Account();
-        DBClass dbclass = new DBClass();
+
 
         public Form1()
         {
@@ -200,10 +202,18 @@ namespace JuicyBalls
                 MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
                 return;
             }
+            else if (account.LoggedInAccounts.Contains(account))
+            {
+                MessageBox.Show("User already signed in!","Error");
+                textBoxNamePlayer1.Clear();
+                textBoxPasswordPlayer1.Clear();
+                return;
+            }
             else
             {
                 MessageBox.Show("Welcome " + account.Username);
                 textBoxPasswordPlayer1.Clear();
+                account.LoggedInAccounts.Add(account);
             }
         }
 
@@ -512,6 +522,13 @@ namespace JuicyBalls
                 MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
                 return;
             }
+            else if (account.LoggedInAccounts.Contains(account))
+            {
+                MessageBox.Show("User already signed in!", "Error");
+                textBoxNamePlayer2.Clear();
+                textBoxPasswordPlayer2.Clear();
+                return;
+            }
             else
             {
                 MessageBox.Show("Welcome " + account.Username);
@@ -530,6 +547,13 @@ namespace JuicyBalls
                 MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
                 return;
             }
+            else if (account.LoggedInAccounts.Contains(account))
+            {
+                MessageBox.Show("User already signed in!", "Error");
+                textBoxNamePlayer3.Clear();
+                textBoxPasswordPlayer3.Clear();
+                return;
+            }
             else
             {
                 MessageBox.Show("Welcome " + account.Username);
@@ -546,6 +570,13 @@ namespace JuicyBalls
             if (account.PasswordToCheck != account.dbpassword)
             {
                 MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (account.LoggedInAccounts.Contains(account))
+            {
+                MessageBox.Show("User already signed in!", "Error");
+                textBoxNamePlayer4.Clear();
+                textBoxPasswordPlayer4.Clear();
                 return;
             }
             else
