@@ -260,6 +260,7 @@
             this.btnConfirmPlayer4.TabIndex = 0;
             this.btnConfirmPlayer4.Text = "Confirm";
             this.btnConfirmPlayer4.UseVisualStyleBackColor = true;
+            this.btnConfirmPlayer4.Click += new System.EventHandler(this.btnConfirmPlayer4_Click);
             // 
             // label7
             // 
@@ -323,6 +324,7 @@
             this.btnConfirmPlayer3.TabIndex = 0;
             this.btnConfirmPlayer3.Text = "Confirm";
             this.btnConfirmPlayer3.UseVisualStyleBackColor = true;
+            this.btnConfirmPlayer3.Click += new System.EventHandler(this.btnConfirmPlayer3_Click);
             // 
             // label5
             // 
@@ -386,6 +388,7 @@
             this.btnConfirmPlayer2.TabIndex = 0;
             this.btnConfirmPlayer2.Text = "Confirm";
             this.btnConfirmPlayer2.UseVisualStyleBackColor = true;
+            this.btnConfirmPlayer2.Click += new System.EventHandler(this.btnConfirmPlayer2_Click);
             // 
             // label3
             // 

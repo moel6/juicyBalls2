@@ -191,7 +191,20 @@ namespace JuicyBalls
 
         private void btnConfirmPlayer1_Click(object sender, EventArgs e)
         {
-            signin(btnConfirmPlayer1, textBoxNamePlayer1, textBoxPasswordPlayer1, groupBox1, btnSettingsPlayer1);
+            account.Username = textBoxNamePlayer1.Text;
+            account.PasswordToCheck = textBoxPasswordPlayer1.Text;
+            account.CheckHash(account);
+            dbclass.CheckPassword(account);
+            if (account.PasswordToCheck != account.dbpassword)
+            {
+                MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Welcome " + account.Username);
+                textBoxPasswordPlayer1.Clear();
+            }
         }
 
         private void btnGoToRegister_Click(object sender, EventArgs e)
@@ -466,7 +479,6 @@ namespace JuicyBalls
                     return;
                 }
 
-
             }
         }
 
@@ -487,6 +499,60 @@ namespace JuicyBalls
         private void pictureBoxJumpScare_MouseLeave(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://cdn.discordapp.com/attachments/537810314167844865/561344507807793153/image0.jpg");
+        }
+
+        private void btnConfirmPlayer2_Click(object sender, EventArgs e)
+        {
+            account.Username = textBoxNamePlayer2.Text;
+            account.PasswordToCheck = textBoxPasswordPlayer2.Text;
+            account.CheckHash(account);
+            dbclass.CheckPassword(account);
+            if (account.PasswordToCheck != account.dbpassword)
+            {
+                MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Welcome " + account.Username);
+                textBoxPasswordPlayer2.Clear();
+            }
+        }
+
+        private void btnConfirmPlayer3_Click(object sender, EventArgs e)
+        {
+            account.Username = textBoxNamePlayer3.Text;
+            account.PasswordToCheck = textBoxPasswordPlayer3.Text;
+            account.CheckHash(account);
+            dbclass.CheckPassword(account);
+            if (account.PasswordToCheck != account.dbpassword)
+            {
+                MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Welcome " + account.Username);
+                textBoxPasswordPlayer3.Clear();
+            }
+        }
+
+        private void btnConfirmPlayer4_Click(object sender, EventArgs e)
+        {
+            account.Username = textBoxNamePlayer4.Text;
+            account.PasswordToCheck = textBoxPasswordPlayer4.Text;
+            account.CheckHash(account);
+            dbclass.CheckPassword(account);
+            if (account.PasswordToCheck != account.dbpassword)
+            {
+                MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Welcome " + account.Username);
+                textBoxPasswordPlayer4.Clear();
+            }
         }
     }
 }

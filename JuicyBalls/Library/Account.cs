@@ -107,7 +107,7 @@ namespace Library
             }
         }
 
-        public void CheckHash(Account Account)
+        public void CheckHash(Account account)
         {
             {
                 // Create a SHA256 
