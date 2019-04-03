@@ -30,7 +30,7 @@ namespace JuicyBalls
         private string port = "COM3";
         private int speed = 9600;
 
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -214,6 +214,12 @@ namespace JuicyBalls
                 MessageBox.Show("Welcome " + account.Username);
                 textBoxPasswordPlayer1.Clear();
                 account.LoggedInAccounts.Add(account.Username);
+                account.playingAccounts[0] = account;
+                groupBox1.BackColor = Color.LawnGreen;
+                btnLogOutPlayer1.Location = btnConfirmPlayer1.Location;
+                btnLogOutPlayer1.Visible = true;
+                btnConfirmPlayer1.Visible = false;
+
             }
         }
 
@@ -534,6 +540,11 @@ namespace JuicyBalls
                 MessageBox.Show("Welcome " + account.Username);
                 account.LoggedInAccounts.Add(account.Username);
                 textBoxPasswordPlayer2.Clear();
+                account.playingAccounts[1] = account;
+                groupBox2.BackColor = Color.LawnGreen;
+                btnLogOutPlayer2.Location = btnConfirmPlayer2.Location;
+                btnLogOutPlayer2.Visible = true;
+                btnConfirmPlayer2.Visible = false;
             }
         }
 
@@ -560,6 +571,11 @@ namespace JuicyBalls
                 MessageBox.Show("Welcome " + account.Username);
                 account.LoggedInAccounts.Add(account.Username);
                 textBoxPasswordPlayer3.Clear();
+                account.playingAccounts[2] = account;
+                groupBox3.BackColor = Color.LawnGreen;
+                btnLogOutPlayer3.Location = btnConfirmPlayer3.Location;
+                btnLogOutPlayer3.Visible = true;
+                btnConfirmPlayer3.Visible = false;
             }
         }
 
@@ -586,7 +602,44 @@ namespace JuicyBalls
                 MessageBox.Show("Welcome " + account.Username);
                 account.LoggedInAccounts.Add(account.Username);
                 textBoxPasswordPlayer4.Clear();
+                account.playingAccounts[3] = account;
+                groupBox4.BackColor = Color.LawnGreen;
+                btnLogOutPlayer4.Location = btnConfirmPlayer4.Location;
+                btnLogOutPlayer4.Visible = true;
+                btnConfirmPlayer4.Visible = false;
             }
+        }
+
+        private void btnLogOutPlayer1_Click(object sender, EventArgs e)
+        {
+            groupBox1.BackColor = Color.Transparent;
+            btnConfirmPlayer1.Visible = true;
+            btnLogOutPlayer1.Visible = false;
+            textBoxNamePlayer1.Text = "";
+        }
+
+        private void btnLogOutPlayer2_Click(object sender, EventArgs e)
+        {
+            groupBox2.BackColor = Color.Transparent;
+            btnConfirmPlayer2.Visible = true;
+            btnLogOutPlayer2.Visible = false;
+            textBoxNamePlayer2.Text = "";
+        }
+
+        private void btnLogOutPlayer3_Click(object sender, EventArgs e)
+        {
+            groupBox3.BackColor = Color.Transparent;
+            btnConfirmPlayer3.Visible = true;
+            btnLogOutPlayer3.Visible = false;
+            textBoxNamePlayer3.Text = "";
+        }
+
+        private void btnLogOutPlayer4_Click(object sender, EventArgs e)
+        {
+            groupBox4.BackColor = Color.Transparent;
+            btnConfirmPlayer4.Visible = true;
+            btnLogOutPlayer4.Visible = false;
+            textBoxNamePlayer4.Text = "";
         }
     }
 }
