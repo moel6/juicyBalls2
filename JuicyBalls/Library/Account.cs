@@ -17,7 +17,7 @@ namespace Library
         public List<string> accounts = new List<string>();
         public List<String> LoggedInAccounts = new List<String>();
 
-        public Account[] playingAccounts = new Account[4];
+        public Account[] playingAccounts = new Account[3];
 
 
         private string DBPassword;

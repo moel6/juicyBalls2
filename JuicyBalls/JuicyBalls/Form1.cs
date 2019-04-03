@@ -193,6 +193,18 @@ namespace JuicyBalls
 
         private void btnConfirmPlayer1_Click(object sender, EventArgs e)
         {
+            if (textBoxNamePlayer1.Text == "")
+            {
+                MessageBox.Show("Please insert Username!","Error",  MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
+            if (textBoxPasswordPlayer1.Text == "")
+            {
+                MessageBox.Show("Please insert Password!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
+
+
             account.Username = textBoxNamePlayer1.Text;
             account.PasswordToCheck = textBoxPasswordPlayer1.Text;
             account.CheckHash(account);
@@ -519,6 +531,16 @@ namespace JuicyBalls
 
         private void btnConfirmPlayer2_Click(object sender, EventArgs e)
         {
+            if (textBoxNamePlayer2.Text == "")
+            {
+                MessageBox.Show("Please insert Username!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
+            if (textBoxPasswordPlayer1.Text == "")
+            {
+                MessageBox.Show("Please insert Password!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
             account.Username = textBoxNamePlayer2.Text;
             account.PasswordToCheck = textBoxPasswordPlayer2.Text;
             account.CheckHash(account);
@@ -550,6 +572,16 @@ namespace JuicyBalls
 
         private void btnConfirmPlayer3_Click(object sender, EventArgs e)
         {
+            if (textBoxNamePlayer3.Text == "")
+            {
+                MessageBox.Show("Please insert Username!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
+            if (textBoxPasswordPlayer3.Text == "")
+            {
+                MessageBox.Show("Please insert Password!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
             account.Username = textBoxNamePlayer3.Text;
             account.PasswordToCheck = textBoxPasswordPlayer3.Text;
             account.CheckHash(account);
@@ -581,6 +613,16 @@ namespace JuicyBalls
 
         private void btnConfirmPlayer4_Click(object sender, EventArgs e)
         {
+            if (textBoxNamePlayer4.Text == "")
+            {
+                MessageBox.Show("Please insert Username!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
+            if (textBoxPasswordPlayer4.Text == "")
+            {
+                MessageBox.Show("Please insert Password!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
             account.Username = textBoxNamePlayer4.Text;
             account.PasswordToCheck = textBoxPasswordPlayer4.Text;
             account.CheckHash(account);
@@ -612,6 +654,8 @@ namespace JuicyBalls
 
         private void btnLogOutPlayer1_Click(object sender, EventArgs e)
         {
+            account = account.playingAccounts[0];
+            account.LoggedInAccounts.Remove(account.Username);
             groupBox1.BackColor = Color.Transparent;
             btnConfirmPlayer1.Visible = true;
             btnLogOutPlayer1.Visible = false;
@@ -620,6 +664,8 @@ namespace JuicyBalls
 
         private void btnLogOutPlayer2_Click(object sender, EventArgs e)
         {
+            account = account.playingAccounts[1];
+            account.LoggedInAccounts.Remove(account.Username);
             groupBox2.BackColor = Color.Transparent;
             btnConfirmPlayer2.Visible = true;
             btnLogOutPlayer2.Visible = false;
@@ -628,6 +674,8 @@ namespace JuicyBalls
 
         private void btnLogOutPlayer3_Click(object sender, EventArgs e)
         {
+            account = account.playingAccounts[2];
+            account.LoggedInAccounts.Remove(account.Username);
             groupBox3.BackColor = Color.Transparent;
             btnConfirmPlayer3.Visible = true;
             btnLogOutPlayer3.Visible = false;
@@ -636,6 +684,8 @@ namespace JuicyBalls
 
         private void btnLogOutPlayer4_Click(object sender, EventArgs e)
         {
+            account = account.playingAccounts[3];
+            account.LoggedInAccounts.Remove(account.Username);
             groupBox4.BackColor = Color.Transparent;
             btnConfirmPlayer4.Visible = true;
             btnLogOutPlayer4.Visible = false;
