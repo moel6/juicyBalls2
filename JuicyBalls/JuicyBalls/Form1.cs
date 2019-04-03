@@ -14,7 +14,7 @@ using Library;
 
 namespace JuicyBalls
 {
-    
+
     public partial class Form1 : Form
     {
         DBClass dbclass = new DBClass();
@@ -30,7 +30,7 @@ namespace JuicyBalls
         private string port = "COM3";
         private int speed = 9600;
 
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -195,7 +195,7 @@ namespace JuicyBalls
         {
             if (textBoxNamePlayer1.Text == "")
             {
-                MessageBox.Show("Please insert Username!","Error",  MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Please insert Username!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
                 return;
             }
             if (textBoxPasswordPlayer1.Text == "")
@@ -207,7 +207,18 @@ namespace JuicyBalls
 
             account.Username = textBoxNamePlayer1.Text;
             account.PasswordToCheck = textBoxPasswordPlayer1.Text;
+
+            dbclass.CheckExistingUsers(account);
+            if (!account.accounts.Contains(account.Username))
+            {
+                MessageBox.Show("Username not found!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                textBoxNamePlayer1.Clear();
+                textBoxPasswordPlayer1.Clear();
+                return;
+            }
+
             account.CheckHash(account);
+
             dbclass.CheckPassword(account);
             if (account.PasswordToCheck != account.dbpassword)
             {
@@ -216,7 +227,7 @@ namespace JuicyBalls
             }
             else if (account.LoggedInAccounts.Contains(account.Username))
             {
-                MessageBox.Show("User already signed in!","Error");
+                MessageBox.Show("User already signed in!", "Error");
                 textBoxNamePlayer1.Clear();
                 textBoxPasswordPlayer1.Clear();
                 return;
@@ -395,7 +406,7 @@ namespace JuicyBalls
                 //bool
                 darkmode = true;
             }
-            else if(darkmode == true)
+            else if (darkmode == true)
             {
                 //Buttons
                 btnConfirmPlayer1.BackColor = Color.White;
@@ -521,7 +532,7 @@ namespace JuicyBalls
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pictureBoxJumpScare_MouseLeave(object sender, EventArgs e)
@@ -536,13 +547,21 @@ namespace JuicyBalls
                 MessageBox.Show("Please insert Username!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
                 return;
             }
-            if (textBoxPasswordPlayer1.Text == "")
+            if (textBoxPasswordPlayer2.Text == "")
             {
                 MessageBox.Show("Please insert Password!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
                 return;
             }
             account.Username = textBoxNamePlayer2.Text;
             account.PasswordToCheck = textBoxPasswordPlayer2.Text;
+            dbclass.CheckExistingUsers(account);
+            if (!account.accounts.Contains(account.Username))
+            {
+                MessageBox.Show("Username not found!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                textBoxNamePlayer2.Clear();
+                textBoxPasswordPlayer2.Clear();
+                return;
+            }
             account.CheckHash(account);
             dbclass.CheckPassword(account);
             if (account.PasswordToCheck != account.dbpassword)
@@ -584,6 +603,14 @@ namespace JuicyBalls
             }
             account.Username = textBoxNamePlayer3.Text;
             account.PasswordToCheck = textBoxPasswordPlayer3.Text;
+            dbclass.CheckExistingUsers(account);
+            if (!account.accounts.Contains(account.Username))
+            {
+                MessageBox.Show("Username not found!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                textBoxNamePlayer3.Clear();
+                textBoxPasswordPlayer3.Clear();
+                return;
+            }
             account.CheckHash(account);
             dbclass.CheckPassword(account);
             if (account.PasswordToCheck != account.dbpassword)
@@ -625,6 +652,14 @@ namespace JuicyBalls
             }
             account.Username = textBoxNamePlayer4.Text;
             account.PasswordToCheck = textBoxPasswordPlayer4.Text;
+            dbclass.CheckExistingUsers(account);
+            if (!account.accounts.Contains(account.Username))
+            {
+                MessageBox.Show("Username not found!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                textBoxNamePlayer4.Clear();
+                textBoxPasswordPlayer4.Clear();
+                return;
+            }
             account.CheckHash(account);
             dbclass.CheckPassword(account);
             if (account.PasswordToCheck != account.dbpassword)
