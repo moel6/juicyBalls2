@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs" />
+    <Compile Include="DBClass.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="MessageBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
