@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,7 @@ namespace JuicyBalls
 
         private Library.SerialMessenger serialMessenger;
         private System.Windows.Forms.Timer readMessageTimer;
+        private Timer readMessageTimer;
         // TODO: Below fill in the actual Arduino COM port.
         private string port = "COM3";
         private int speed = 9600;
@@ -37,11 +39,9 @@ namespace JuicyBalls
 
             //Hides the tabcontrol headers
             tabControl1.Appearance = TabAppearance.FlatButtons; tabControl1.ItemSize = new Size(0, 1); tabControl1.SizeMode = TabSizeMode.Fixed;
-
             //MessageBuilder messageBuilder = new MessageBuilder('#', '%');
             Library.MessageBuilder messageBuilder = new Library.MessageBuilder('\n');
             serialMessenger = new Library.SerialMessenger(port, speed, messageBuilder);
-
             readMessageTimer = new System.Windows.Forms.Timer();
             readMessageTimer.Interval = 10;
             readMessageTimer.Tick += new EventHandler(ReadMessageTimer_Tick);
@@ -728,5 +728,5 @@ namespace JuicyBalls
         }
     }
 }
-
+}
 
