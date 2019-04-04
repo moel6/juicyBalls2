@@ -10,11 +10,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Library;
 
 namespace JuicyBalls
 {
+
     public partial class Form1 : Form
     {
+        DBClass dbclass = new DBClass();
+        private Account account = new Account();
         private bool signin1 = false;
         private string password = "Test";
         private string name = "Test";
@@ -189,7 +193,57 @@ namespace JuicyBalls
 
         private void btnConfirmPlayer1_Click(object sender, EventArgs e)
         {
-            signin(btnConfirmPlayer1, textBoxNamePlayer1, textBoxPasswordPlayer1, groupBox1, btnSettingsPlayer1);
+            if (textBoxNamePlayer1.Text == "")
+            {
+                MessageBox.Show("Please insert Username!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
+            if (textBoxPasswordPlayer1.Text == "")
+            {
+                MessageBox.Show("Please insert Password!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            account.Username = textBoxNamePlayer1.Text;
+            account.PasswordToCheck = textBoxPasswordPlayer1.Text;
+
+            dbclass.CheckExistingUsers(account);
+            if (!account.accounts.Contains(account.Username))
+            {
+                MessageBox.Show("Username not found!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                textBoxNamePlayer1.Clear();
+                textBoxPasswordPlayer1.Clear();
+                return;
+            }
+
+            account.CheckHash(account);
+
+            dbclass.CheckPassword(account);
+            if (account.PasswordToCheck != account.dbpassword)
+            {
+                MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (account.LoggedInAccounts.Contains(account.Username))
+            {
+                MessageBox.Show("User already signed in!", "Error");
+                textBoxNamePlayer1.Clear();
+                textBoxPasswordPlayer1.Clear();
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Welcome " + account.Username);
+                textBoxPasswordPlayer1.Clear();
+                account.LoggedInAccounts.Add(account.Username);
+                account.playingAccounts[0] = account;
+                groupBox1.BackColor = Color.LawnGreen;
+                btnLogOutPlayer1.Location = btnConfirmPlayer1.Location;
+                btnLogOutPlayer1.Visible = true;
+                btnConfirmPlayer1.Visible = false;
+
+            }
         }
 
         private void btnGoToRegister_Click(object sender, EventArgs e)
@@ -352,7 +406,7 @@ namespace JuicyBalls
                 //bool
                 darkmode = true;
             }
-            else if(darkmode == true)
+            else if (darkmode == true)
             {
                 //Buttons
                 btnConfirmPlayer1.BackColor = Color.White;
@@ -448,6 +502,23 @@ namespace JuicyBalls
 
         private void btnRegisterAccount_Click(object sender, EventArgs e)
         {
+            if (textBoxRegisterPassword.Text == textBoxConfirmPassword.Text)
+            {
+                account.Username = textBoxRegisterName.Text;
+                dbclass.CheckExistingUsers(account);
+                if (!account.accounts.Contains(account.Username))
+                {
+                    account.CheckedPassword = textBoxRegisterPassword.Text;
+                    account.PasswordEncryption();
+                    dbclass.CreateUser(account);
+                }
+                else
+                {
+                    MessageBox.Show("Username already taken!", "Error", MessageBoxButtons.OK);
+                    return;
+                }
+
+            }
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -461,12 +532,199 @@ namespace JuicyBalls
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pictureBoxJumpScare_MouseLeave(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://cdn.discordapp.com/attachments/537810314167844865/561344507807793153/image0.jpg");
+        }
+
+        private void btnConfirmPlayer2_Click(object sender, EventArgs e)
+        {
+            if (textBoxNamePlayer2.Text == "")
+            {
+                MessageBox.Show("Please insert Username!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
+            if (textBoxPasswordPlayer2.Text == "")
+            {
+                MessageBox.Show("Please insert Password!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
+            account.Username = textBoxNamePlayer2.Text;
+            account.PasswordToCheck = textBoxPasswordPlayer2.Text;
+            dbclass.CheckExistingUsers(account);
+            if (!account.accounts.Contains(account.Username))
+            {
+                MessageBox.Show("Username not found!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                textBoxNamePlayer2.Clear();
+                textBoxPasswordPlayer2.Clear();
+                return;
+            }
+            account.CheckHash(account);
+            dbclass.CheckPassword(account);
+            if (account.PasswordToCheck != account.dbpassword)
+            {
+                MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (account.LoggedInAccounts.Contains(account.Username))
+            {
+                MessageBox.Show("User already signed in!", "Error");
+                textBoxNamePlayer2.Clear();
+                textBoxPasswordPlayer2.Clear();
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Welcome " + account.Username);
+                account.LoggedInAccounts.Add(account.Username);
+                textBoxPasswordPlayer2.Clear();
+                account.playingAccounts[1] = account;
+                groupBox2.BackColor = Color.LawnGreen;
+                btnLogOutPlayer2.Location = btnConfirmPlayer2.Location;
+                btnLogOutPlayer2.Visible = true;
+                btnConfirmPlayer2.Visible = false;
+            }
+        }
+
+        private void btnConfirmPlayer3_Click(object sender, EventArgs e)
+        {
+            if (textBoxNamePlayer3.Text == "")
+            {
+                MessageBox.Show("Please insert Username!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
+            if (textBoxPasswordPlayer3.Text == "")
+            {
+                MessageBox.Show("Please insert Password!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
+            account.Username = textBoxNamePlayer3.Text;
+            account.PasswordToCheck = textBoxPasswordPlayer3.Text;
+            dbclass.CheckExistingUsers(account);
+            if (!account.accounts.Contains(account.Username))
+            {
+                MessageBox.Show("Username not found!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                textBoxNamePlayer3.Clear();
+                textBoxPasswordPlayer3.Clear();
+                return;
+            }
+            account.CheckHash(account);
+            dbclass.CheckPassword(account);
+            if (account.PasswordToCheck != account.dbpassword)
+            {
+                MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (account.LoggedInAccounts.Contains(account.Username))
+            {
+                MessageBox.Show("User already signed in!", "Error");
+                textBoxNamePlayer3.Clear();
+                textBoxPasswordPlayer3.Clear();
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Welcome " + account.Username);
+                account.LoggedInAccounts.Add(account.Username);
+                textBoxPasswordPlayer3.Clear();
+                account.playingAccounts[2] = account;
+                groupBox3.BackColor = Color.LawnGreen;
+                btnLogOutPlayer3.Location = btnConfirmPlayer3.Location;
+                btnLogOutPlayer3.Visible = true;
+                btnConfirmPlayer3.Visible = false;
+            }
+        }
+
+        private void btnConfirmPlayer4_Click(object sender, EventArgs e)
+        {
+            if (textBoxNamePlayer4.Text == "")
+            {
+                MessageBox.Show("Please insert Username!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
+            if (textBoxPasswordPlayer4.Text == "")
+            {
+                MessageBox.Show("Please insert Password!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                return;
+            }
+            account.Username = textBoxNamePlayer4.Text;
+            account.PasswordToCheck = textBoxPasswordPlayer4.Text;
+            dbclass.CheckExistingUsers(account);
+            if (!account.accounts.Contains(account.Username))
+            {
+                MessageBox.Show("Username not found!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                textBoxNamePlayer4.Clear();
+                textBoxPasswordPlayer4.Clear();
+                return;
+            }
+            account.CheckHash(account);
+            dbclass.CheckPassword(account);
+            if (account.PasswordToCheck != account.dbpassword)
+            {
+                MessageBox.Show("Password incorrect!", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            else if (account.LoggedInAccounts.Contains(account.Username))
+            {
+                MessageBox.Show("User already signed in!", "Error");
+                textBoxNamePlayer4.Clear();
+                textBoxPasswordPlayer4.Clear();
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Welcome " + account.Username);
+                account.LoggedInAccounts.Add(account.Username);
+                textBoxPasswordPlayer4.Clear();
+                account.playingAccounts[3] = account;
+                groupBox4.BackColor = Color.LawnGreen;
+                btnLogOutPlayer4.Location = btnConfirmPlayer4.Location;
+                btnLogOutPlayer4.Visible = true;
+                btnConfirmPlayer4.Visible = false;
+            }
+        }
+
+        private void btnLogOutPlayer1_Click(object sender, EventArgs e)
+        {
+            account = account.playingAccounts[0];
+            account.LoggedInAccounts.Remove(account.Username);
+            groupBox1.BackColor = Color.Transparent;
+            btnConfirmPlayer1.Visible = true;
+            btnLogOutPlayer1.Visible = false;
+            textBoxNamePlayer1.Text = "";
+        }
+
+        private void btnLogOutPlayer2_Click(object sender, EventArgs e)
+        {
+            account = account.playingAccounts[1];
+            account.LoggedInAccounts.Remove(account.Username);
+            groupBox2.BackColor = Color.Transparent;
+            btnConfirmPlayer2.Visible = true;
+            btnLogOutPlayer2.Visible = false;
+            textBoxNamePlayer2.Text = "";
+        }
+
+        private void btnLogOutPlayer3_Click(object sender, EventArgs e)
+        {
+            account = account.playingAccounts[2];
+            account.LoggedInAccounts.Remove(account.Username);
+            groupBox3.BackColor = Color.Transparent;
+            btnConfirmPlayer3.Visible = true;
+            btnLogOutPlayer3.Visible = false;
+            textBoxNamePlayer3.Text = "";
+        }
+
+        private void btnLogOutPlayer4_Click(object sender, EventArgs e)
+        {
+            account = account.playingAccounts[3];
+            account.LoggedInAccounts.Remove(account.Username);
+            groupBox4.BackColor = Color.Transparent;
+            btnConfirmPlayer4.Visible = true;
+            btnLogOutPlayer4.Visible = false;
+            textBoxNamePlayer4.Text = "";
         }
     }
 }

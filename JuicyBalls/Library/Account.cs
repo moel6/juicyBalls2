@@ -15,6 +15,10 @@ namespace Library
         public bool IsLoggedIn;
         private int id;
         public List<string> accounts = new List<string>();
+        public List<String> LoggedInAccounts = new List<String>();
+
+        public Account[] playingAccounts = new Account[4];
+
 
         private string DBPassword;
 
@@ -107,7 +111,7 @@ namespace Library
             }
         }
 
-        public void CheckHash(Account Account)
+        public void CheckHash(Account account)
         {
             {
                 // Create a SHA256 
