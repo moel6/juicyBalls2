@@ -39,8 +39,8 @@ namespace JuicyBalls
             tabControl1.Appearance = TabAppearance.FlatButtons; tabControl1.ItemSize = new Size(0, 1); tabControl1.SizeMode = TabSizeMode.Fixed;
 
             //MessageBuilder messageBuilder = new MessageBuilder('#', '%');
-            Library.MessageBuilder messageBuilder = new Library.MessageBuilder('\n');
-            serialMessenger = new Library.SerialMessenger(port, speed, messageBuilder);
+            MessageBuilder messageBuilder = new MessageBuilder('#', '%');
+            serialMessenger = new SerialMessenger("COM13", 9600, messageBuilder);
 
             readMessageTimer = new System.Windows.Forms.Timer();
             readMessageTimer.Interval = 10;
@@ -137,18 +137,6 @@ namespace JuicyBalls
             disconnect();
         }
 
-        private void disconnect()
-        {
-            try
-            {
-                readMessageTimer.Enabled = false;
-                serialMessenger.Disconnect();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-        }
         /*
         private void buttonClear_Click(object sender, EventArgs e)
         {
@@ -725,6 +713,56 @@ namespace JuicyBalls
             btnConfirmPlayer4.Visible = true;
             btnLogOutPlayer4.Visible = false;
             textBoxNamePlayer4.Text = "";
+        }
+
+        private void connectButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void connectButton_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                startButton.Enabled = true;
+                connectButton.Enabled = false;
+                serialMessenger.Connect();
+                readMessageTimer.Enabled = true;
+                whoIsInControlLabel.Text = "Connected";
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+                whoIsInControlLabel.Text = "Connection failed";
+            }
+        }
+
+        private void disconnect()
+        {
+            try
+            {
+                connectButton.Enabled = true;
+                serialMessenger.SendMessage("#Stop%");
+                readMessageTimer.Enabled = false;
+                serialMessenger.Disconnect();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void disconnecButton_Click(object sender, EventArgs e)
+        {
+            disconnect();
+            whoIsInControlLabel.Text = "Disconnected";
+        }
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            serialMessenger.SendMessage("#Start%");
+            disconnecButton.Enabled = true;
+            startButton.Enabled = false;
         }
     }
 }

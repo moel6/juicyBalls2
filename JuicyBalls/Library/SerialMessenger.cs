@@ -114,7 +114,7 @@ namespace Library
             {
                 //try
                 //{
-                serialPort.Write(message + messageBuilder.MessageEndMarker);
+                serialPort.Write(messageBuilder.MessageBeginMarker + message + messageBuilder.MessageEndMarker);
                 return true;
                 //}
                 //catch (Exception exception) // Not very nice to catch Exception...but for now it's good enough.
@@ -124,6 +124,7 @@ namespace Library
             }
             return false;
         }
+
 
         /// <summary>
         /// Reads data from the serialport and extracts the mesages
@@ -161,4 +162,3 @@ namespace Library
         }
     }
 }
-

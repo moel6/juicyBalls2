@@ -35,24 +35,28 @@
             this.btnGoToRegister = new System.Windows.Forms.Button();
             this.btnStartGame = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnLogOutPlayer4 = new System.Windows.Forms.Button();
             this.btnConfirmPlayer4 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxNamePlayer4 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxPasswordPlayer4 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnLogOutPlayer3 = new System.Windows.Forms.Button();
             this.btnConfirmPlayer3 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxNamePlayer3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxPasswordPlayer3 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnLogOutPlayer2 = new System.Windows.Forms.Button();
             this.btnConfirmPlayer2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxNamePlayer2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxPasswordPlayer2 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLogOutPlayer1 = new System.Windows.Forms.Button();
             this.btnConfirmPlayer1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxNamePlayer1 = new System.Windows.Forms.TextBox();
@@ -134,10 +138,11 @@
             this.textBoxNewName = new System.Windows.Forms.TextBox();
             this.buttonGoToLogin2 = new System.Windows.Forms.Button();
             this.buttonOpenChangeName = new System.Windows.Forms.Button();
-            this.btnLogOutPlayer1 = new System.Windows.Forms.Button();
-            this.btnLogOutPlayer2 = new System.Windows.Forms.Button();
-            this.btnLogOutPlayer3 = new System.Windows.Forms.Button();
-            this.btnLogOutPlayer4 = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.startButton = new System.Windows.Forms.Button();
+            this.disconnecButton = new System.Windows.Forms.Button();
+            this.whoIsInControlLabel = new System.Windows.Forms.Label();
+            this.connectButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -157,6 +162,7 @@
             this.tabPage4.SuspendLayout();
             this.groupBoxChangePassword.SuspendLayout();
             this.groupBoxChangeName.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -165,6 +171,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
@@ -255,6 +262,18 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Speler 4";
             // 
+            // btnLogOutPlayer4
+            // 
+            this.btnLogOutPlayer4.BackColor = System.Drawing.Color.Red;
+            this.btnLogOutPlayer4.Location = new System.Drawing.Point(5, 125);
+            this.btnLogOutPlayer4.Name = "btnLogOutPlayer4";
+            this.btnLogOutPlayer4.Size = new System.Drawing.Size(172, 50);
+            this.btnLogOutPlayer4.TabIndex = 8;
+            this.btnLogOutPlayer4.Text = "Logout";
+            this.btnLogOutPlayer4.UseVisualStyleBackColor = false;
+            this.btnLogOutPlayer4.Visible = false;
+            this.btnLogOutPlayer4.Click += new System.EventHandler(this.btnLogOutPlayer4_Click);
+            // 
             // btnConfirmPlayer4
             // 
             this.btnConfirmPlayer4.Location = new System.Drawing.Point(5, 166);
@@ -317,6 +336,18 @@
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Speler 3";
+            // 
+            // btnLogOutPlayer3
+            // 
+            this.btnLogOutPlayer3.BackColor = System.Drawing.Color.Red;
+            this.btnLogOutPlayer3.Location = new System.Drawing.Point(5, 125);
+            this.btnLogOutPlayer3.Name = "btnLogOutPlayer3";
+            this.btnLogOutPlayer3.Size = new System.Drawing.Size(172, 50);
+            this.btnLogOutPlayer3.TabIndex = 7;
+            this.btnLogOutPlayer3.Text = "Logout";
+            this.btnLogOutPlayer3.UseVisualStyleBackColor = false;
+            this.btnLogOutPlayer3.Visible = false;
+            this.btnLogOutPlayer3.Click += new System.EventHandler(this.btnLogOutPlayer3_Click);
             // 
             // btnConfirmPlayer3
             // 
@@ -381,6 +412,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Speler 2";
             // 
+            // btnLogOutPlayer2
+            // 
+            this.btnLogOutPlayer2.BackColor = System.Drawing.Color.Red;
+            this.btnLogOutPlayer2.Location = new System.Drawing.Point(5, 125);
+            this.btnLogOutPlayer2.Name = "btnLogOutPlayer2";
+            this.btnLogOutPlayer2.Size = new System.Drawing.Size(172, 50);
+            this.btnLogOutPlayer2.TabIndex = 6;
+            this.btnLogOutPlayer2.Text = "Logout";
+            this.btnLogOutPlayer2.UseVisualStyleBackColor = false;
+            this.btnLogOutPlayer2.Visible = false;
+            this.btnLogOutPlayer2.Click += new System.EventHandler(this.btnLogOutPlayer2_Click);
+            // 
             // btnConfirmPlayer2
             // 
             this.btnConfirmPlayer2.Location = new System.Drawing.Point(5, 166);
@@ -443,6 +486,18 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Speler 1";
+            // 
+            // btnLogOutPlayer1
+            // 
+            this.btnLogOutPlayer1.BackColor = System.Drawing.Color.Red;
+            this.btnLogOutPlayer1.Location = new System.Drawing.Point(5, 125);
+            this.btnLogOutPlayer1.Name = "btnLogOutPlayer1";
+            this.btnLogOutPlayer1.Size = new System.Drawing.Size(172, 50);
+            this.btnLogOutPlayer1.TabIndex = 5;
+            this.btnLogOutPlayer1.Text = "Logout";
+            this.btnLogOutPlayer1.UseVisualStyleBackColor = false;
+            this.btnLogOutPlayer1.Visible = false;
+            this.btnLogOutPlayer1.Click += new System.EventHandler(this.btnLogOutPlayer1_Click);
             // 
             // btnConfirmPlayer1
             // 
@@ -1310,53 +1365,58 @@
             this.buttonOpenChangeName.Visible = false;
             this.buttonOpenChangeName.Click += new System.EventHandler(this.buttonOpenChangeName_Click);
             // 
-            // btnLogOutPlayer1
+            // tabPage5
             // 
-            this.btnLogOutPlayer1.BackColor = System.Drawing.Color.Red;
-            this.btnLogOutPlayer1.Location = new System.Drawing.Point(5, 125);
-            this.btnLogOutPlayer1.Name = "btnLogOutPlayer1";
-            this.btnLogOutPlayer1.Size = new System.Drawing.Size(172, 50);
-            this.btnLogOutPlayer1.TabIndex = 5;
-            this.btnLogOutPlayer1.Text = "Logout";
-            this.btnLogOutPlayer1.UseVisualStyleBackColor = false;
-            this.btnLogOutPlayer1.Visible = false;
-            this.btnLogOutPlayer1.Click += new System.EventHandler(this.btnLogOutPlayer1_Click);
+            this.tabPage5.Controls.Add(this.startButton);
+            this.tabPage5.Controls.Add(this.disconnecButton);
+            this.tabPage5.Controls.Add(this.whoIsInControlLabel);
+            this.tabPage5.Controls.Add(this.connectButton);
+            this.tabPage5.Location = new System.Drawing.Point(4, 25);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(1027, 581);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Arduino Connection";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // btnLogOutPlayer2
+            // startButton
             // 
-            this.btnLogOutPlayer2.BackColor = System.Drawing.Color.Red;
-            this.btnLogOutPlayer2.Location = new System.Drawing.Point(5, 125);
-            this.btnLogOutPlayer2.Name = "btnLogOutPlayer2";
-            this.btnLogOutPlayer2.Size = new System.Drawing.Size(172, 50);
-            this.btnLogOutPlayer2.TabIndex = 6;
-            this.btnLogOutPlayer2.Text = "Logout";
-            this.btnLogOutPlayer2.UseVisualStyleBackColor = false;
-            this.btnLogOutPlayer2.Visible = false;
-            this.btnLogOutPlayer2.Click += new System.EventHandler(this.btnLogOutPlayer2_Click);
+            this.startButton.Enabled = false;
+            this.startButton.Location = new System.Drawing.Point(485, 303);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(75, 51);
+            this.startButton.TabIndex = 9;
+            this.startButton.Text = "Start";
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
-            // btnLogOutPlayer3
+            // disconnecButton
             // 
-            this.btnLogOutPlayer3.BackColor = System.Drawing.Color.Red;
-            this.btnLogOutPlayer3.Location = new System.Drawing.Point(5, 125);
-            this.btnLogOutPlayer3.Name = "btnLogOutPlayer3";
-            this.btnLogOutPlayer3.Size = new System.Drawing.Size(172, 50);
-            this.btnLogOutPlayer3.TabIndex = 7;
-            this.btnLogOutPlayer3.Text = "Logout";
-            this.btnLogOutPlayer3.UseVisualStyleBackColor = false;
-            this.btnLogOutPlayer3.Visible = false;
-            this.btnLogOutPlayer3.Click += new System.EventHandler(this.btnLogOutPlayer3_Click);
+            this.disconnecButton.Location = new System.Drawing.Point(524, 138);
+            this.disconnecButton.Name = "disconnecButton";
+            this.disconnecButton.Size = new System.Drawing.Size(103, 38);
+            this.disconnecButton.TabIndex = 8;
+            this.disconnecButton.Text = "Disconnect";
+            this.disconnecButton.UseVisualStyleBackColor = true;
+            this.disconnecButton.Click += new System.EventHandler(this.disconnecButton_Click);
             // 
-            // btnLogOutPlayer4
+            // whoIsInControlLabel
             // 
-            this.btnLogOutPlayer4.BackColor = System.Drawing.Color.Red;
-            this.btnLogOutPlayer4.Location = new System.Drawing.Point(5, 125);
-            this.btnLogOutPlayer4.Name = "btnLogOutPlayer4";
-            this.btnLogOutPlayer4.Size = new System.Drawing.Size(172, 50);
-            this.btnLogOutPlayer4.TabIndex = 8;
-            this.btnLogOutPlayer4.Text = "Logout";
-            this.btnLogOutPlayer4.UseVisualStyleBackColor = false;
-            this.btnLogOutPlayer4.Visible = false;
-            this.btnLogOutPlayer4.Click += new System.EventHandler(this.btnLogOutPlayer4_Click);
+            this.whoIsInControlLabel.AutoSize = true;
+            this.whoIsInControlLabel.Location = new System.Drawing.Point(174, 106);
+            this.whoIsInControlLabel.Name = "whoIsInControlLabel";
+            this.whoIsInControlLabel.Size = new System.Drawing.Size(83, 17);
+            this.whoIsInControlLabel.TabIndex = 7;
+            this.whoIsInControlLabel.Text = "Connection:";
+            // 
+            // connectButton
+            // 
+            this.connectButton.Location = new System.Drawing.Point(415, 137);
+            this.connectButton.Name = "connectButton";
+            this.connectButton.Size = new System.Drawing.Size(103, 39);
+            this.connectButton.TabIndex = 6;
+            this.connectButton.Text = "Connect";
+            this.connectButton.UseVisualStyleBackColor = true;
+            this.connectButton.Click += new System.EventHandler(this.connectButton_Click_1);
             // 
             // Form1
             // 
@@ -1396,6 +1456,8 @@
             this.groupBoxChangePassword.PerformLayout();
             this.groupBoxChangeName.ResumeLayout(false);
             this.groupBoxChangeName.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1512,6 +1574,11 @@
         private System.Windows.Forms.Button btnLogOutPlayer4;
         private System.Windows.Forms.Button btnLogOutPlayer3;
         private System.Windows.Forms.Button btnLogOutPlayer2;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Button startButton;
+        private System.Windows.Forms.Button disconnecButton;
+        private System.Windows.Forms.Label whoIsInControlLabel;
+        private System.Windows.Forms.Button connectButton;
     }
 }
 
