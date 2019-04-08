@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization.Formatters;
 using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
@@ -11,6 +12,8 @@ namespace Library
 {
     public class Account
     {
+        DBClass dbclass = new DBClass();
+        
         public bool WasPasswordCorrect;
         public bool IsLoggedIn;
         private int id;
@@ -18,7 +21,6 @@ namespace Library
         public List<String> LoggedInAccounts = new List<String>();
 
         public Account[] playingAccounts = new Account[4];
-
 
         private string DBPassword;
 
@@ -134,6 +136,13 @@ namespace Library
         public override string ToString()
         {
             return Username;
+        }
+
+        private int beurt = 0;
+        public int score;
+        public void addScore()
+        {
+            dbclass.GetConnection();
         }
     }
 }

@@ -89,7 +89,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.listBoxStats = new System.Windows.Forms.ListBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnRefill5 = new System.Windows.Forms.Button();
             this.btnRefill4 = new System.Windows.Forms.Button();
@@ -143,6 +142,16 @@
             this.disconnecButton = new System.Windows.Forms.Button();
             this.whoIsInControlLabel = new System.Windows.Forms.Label();
             this.connectButton = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.labelBlue = new System.Windows.Forms.Label();
+            this.labelRed = new System.Windows.Forms.Label();
+            this.labelYellow = new System.Windows.Forms.Label();
+            this.labelGreen = new System.Windows.Forms.Label();
+            this.labelWhite = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -648,6 +657,7 @@
             this.btnTurn.TabIndex = 13;
             this.btnTurn.Text = "Draai";
             this.btnTurn.UseVisualStyleBackColor = false;
+            this.btnTurn.Click += new System.EventHandler(this.btnTurn_Click);
             // 
             // btnStopGame
             // 
@@ -824,7 +834,16 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.listBoxStats);
+            this.groupBox7.Controls.Add(this.labelWhite);
+            this.groupBox7.Controls.Add(this.labelGreen);
+            this.groupBox7.Controls.Add(this.labelYellow);
+            this.groupBox7.Controls.Add(this.labelRed);
+            this.groupBox7.Controls.Add(this.labelBlue);
+            this.groupBox7.Controls.Add(this.label30);
+            this.groupBox7.Controls.Add(this.label29);
+            this.groupBox7.Controls.Add(this.label28);
+            this.groupBox7.Controls.Add(this.label27);
+            this.groupBox7.Controls.Add(this.label26);
             this.groupBox7.Location = new System.Drawing.Point(741, 218);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox7.Name = "groupBox7";
@@ -833,19 +852,6 @@
             this.groupBox7.TabIndex = 10;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Statistieken";
-            // 
-            // listBoxStats
-            // 
-            this.listBoxStats.FormattingEnabled = true;
-            this.listBoxStats.ItemHeight = 16;
-            this.listBoxStats.Items.AddRange(new object[] {
-            "Test",
-            "Lmao"});
-            this.listBoxStats.Location = new System.Drawing.Point(5, 22);
-            this.listBoxStats.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxStats.Name = "listBoxStats";
-            this.listBoxStats.Size = new System.Drawing.Size(220, 260);
-            this.listBoxStats.TabIndex = 0;
             // 
             // groupBox6
             // 
@@ -1418,6 +1424,96 @@
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click_1);
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(5, 22);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(49, 17);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Blauw:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(5, 43);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(46, 17);
+            this.label27.TabIndex = 1;
+            this.label27.Text = "Rood:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(5, 63);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(42, 17);
+            this.label28.TabIndex = 2;
+            this.label28.Text = "Geel:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(5, 84);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(52, 17);
+            this.label29.TabIndex = 3;
+            this.label29.Text = "Groen:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(6, 106);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(32, 17);
+            this.label30.TabIndex = 4;
+            this.label30.Text = "Wit:";
+            // 
+            // labelBlue
+            // 
+            this.labelBlue.AutoSize = true;
+            this.labelBlue.Location = new System.Drawing.Point(101, 21);
+            this.labelBlue.Name = "labelBlue";
+            this.labelBlue.Size = new System.Drawing.Size(16, 17);
+            this.labelBlue.TabIndex = 5;
+            this.labelBlue.Text = "0";
+            // 
+            // labelRed
+            // 
+            this.labelRed.AutoSize = true;
+            this.labelRed.Location = new System.Drawing.Point(101, 43);
+            this.labelRed.Name = "labelRed";
+            this.labelRed.Size = new System.Drawing.Size(16, 17);
+            this.labelRed.TabIndex = 6;
+            this.labelRed.Text = "0";
+            // 
+            // labelYellow
+            // 
+            this.labelYellow.AutoSize = true;
+            this.labelYellow.Location = new System.Drawing.Point(101, 63);
+            this.labelYellow.Name = "labelYellow";
+            this.labelYellow.Size = new System.Drawing.Size(16, 17);
+            this.labelYellow.TabIndex = 7;
+            this.labelYellow.Text = "0";
+            // 
+            // labelGreen
+            // 
+            this.labelGreen.AutoSize = true;
+            this.labelGreen.Location = new System.Drawing.Point(101, 84);
+            this.labelGreen.Name = "labelGreen";
+            this.labelGreen.Size = new System.Drawing.Size(16, 17);
+            this.labelGreen.TabIndex = 8;
+            this.labelGreen.Text = "0";
+            // 
+            // labelWhite
+            // 
+            this.labelWhite.AutoSize = true;
+            this.labelWhite.Location = new System.Drawing.Point(101, 106);
+            this.labelWhite.Name = "labelWhite";
+            this.labelWhite.Size = new System.Drawing.Size(16, 17);
+            this.labelWhite.TabIndex = 9;
+            this.labelWhite.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1445,6 +1541,7 @@
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -1517,7 +1614,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.ListBox listBoxStats;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button btnRefill5;
         private System.Windows.Forms.Button btnRefill4;
@@ -1579,6 +1675,16 @@
         private System.Windows.Forms.Button disconnecButton;
         private System.Windows.Forms.Label whoIsInControlLabel;
         private System.Windows.Forms.Button connectButton;
+        private System.Windows.Forms.Label labelWhite;
+        private System.Windows.Forms.Label labelGreen;
+        private System.Windows.Forms.Label labelYellow;
+        private System.Windows.Forms.Label labelRed;
+        private System.Windows.Forms.Label labelBlue;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
     }
 }
 

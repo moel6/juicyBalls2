@@ -19,6 +19,7 @@ namespace JuicyBalls
     {
         DBClass dbclass = new DBClass();
         private Account account = new Account();
+
         private bool signin1 = false;
         private string password = "Test";
         private string name = "Test";
@@ -84,6 +85,7 @@ namespace JuicyBalls
             }
         }
 
+        
         /// <summary>
         /// handle received messages
         /// </summary>
@@ -103,17 +105,37 @@ namespace JuicyBalls
 
             */
 
+            if (message == "80")
+            {
+                //Color is blue
+                startButton.Enabled = true;
+                account.addScore();
+            }
+            else if (message == "160")
+            {
+                //Color is red
+                startButton.Enabled = true;
+                account.addScore();
+            }
+            else if(message == "240")
+            {
+                //Color is green
+                startButton.Enabled = true;
+                account.addScore();
+            }
+            else if (message == "320")
+            {
+                //Color is yellow
+                startButton.Enabled = true;
+                account.addScore();
+            }
+            else if (message == "400")
+            {
+                //Color is White
+                startButton.Enabled = true;
+                account.addScore();
+            }
 
-            // TODO: Below fill in your message handling.
-            // The message handling below is only for illustration.
-            if (message == "LED on")
-            {
-                MessageBox.Show(message);
-            }
-            else if (message == "LED off")
-            {
-                MessageBox.Show(message);
-            }
         }
 
         private int getParamValue(string message)
@@ -763,6 +785,14 @@ namespace JuicyBalls
             serialMessenger.SendMessage("#Start%");
             disconnecButton.Enabled = true;
             startButton.Enabled = false;
+        }
+
+        private void btnTurn_Click(object sender, EventArgs e)
+        {
+            foreach (string name in account.LoggedInAccounts)
+            {
+                MessageBox.Show(name);
+            }
         }
     }
 }
