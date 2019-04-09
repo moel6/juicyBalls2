@@ -406,7 +406,16 @@ namespace JuicyBalls
 
         private void pictureBoxJumpScare_MouseLeave(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://cdn.discordapp.com/attachments/537810314167844865/561344507807793153/image0.jpg");
+            string[] scares = new string[6];
+            scares[0] = "https://cdn.discordapp.com/attachments/537810314167844865/561344507807793153/image0.jpg";
+            scares[1] = "http://assets.vg247.com/current//2016/03/paranormal_activity_the_ghost_dimension_film_still.jpg";
+            scares[2] = "https://i.ytimg.com/vi/4h--QkqeBE8/maxresdefault.jpg";
+            scares[3] = "https://img-brabant.rgcdn.nl/715637b8d8e34a1587fb35e1d0b6bf25/opener/Karbonkel-in-het-depot-van-het-Instituut-voor-Beeld-en-Geluid.jpg";
+            scares[4] = "https://www.geek.com/wp-content/uploads/2018/08/religious-horror-movies-625x351.jpg";
+            scares[5] = "https://thenypost.files.wordpress.com/2017/01/zombiepic.jpg?quality=90&strip=all";
+            Random random = new Random();
+            int rand = random.Next(0, 6);
+            Process.Start(scares[rand]);
         }
 
         private void btnConfirmPlayer2_Click(object sender, EventArgs e)
