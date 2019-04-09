@@ -8,6 +8,16 @@ using System.Threading.Tasks;
 
 namespace Library
 {
+    /// <summary>
+    /// Class to send / receive messages using the serial port.
+    /// 
+    /// Intentionally, this class omits the use of the DataReceive event of the SerialPort.
+    /// Using the event would lead to much cleaner code, but also introduces the need 
+    /// of taking care of threading in the MessageBuilder class and invoking UI code from non UI threads.
+    /// Both of these concerns are not subjects of this course.
+    /// 
+    /// Ofcourse, you can change code to you own likings :)
+    /// </summary>
     public class SerialMessenger
     {
         /// <summary>
@@ -114,7 +124,7 @@ namespace Library
             {
                 //try
                 //{
-                serialPort.Write(messageBuilder.MessageBeginMarker + message + messageBuilder.MessageEndMarker);
+                serialPort.Write(message + messageBuilder.MessageEndMarker);
                 return true;
                 //}
                 //catch (Exception exception) // Not very nice to catch Exception...but for now it's good enough.
@@ -124,7 +134,6 @@ namespace Library
             }
             return false;
         }
-
 
         /// <summary>
         /// Reads data from the serialport and extracts the mesages

@@ -7,6 +7,7 @@ using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,12 +26,18 @@ namespace JuicyBalls
         private string name = "Test";
         bool darkmode = false;
 
-        private Library.SerialMessenger serialMessenger;
+        private SerialMessenger serialMessenger;
         private System.Windows.Forms.Timer readMessageTimer;
         // TODO: Below fill in the actual Arduino COM port.
-        private string port = "COM3";
+        private string port = "COM5";
         private int speed = 9600;
 
+
+        private int blue = 0;
+        private int red = 0;
+        private int green = 0;
+        private int yellow = 0;
+        private int white = 0;
 
         public Form1()
         {
@@ -39,170 +46,26 @@ namespace JuicyBalls
             //Hides the tabcontrol headers
             tabControl1.Appearance = TabAppearance.FlatButtons; tabControl1.ItemSize = new Size(0, 1); tabControl1.SizeMode = TabSizeMode.Fixed;
 
+            progressBar1.Value = 20;
+            progressBar2.Value = 20;
+            progressBar3.Value = 20;
+            progressBar4.Value = 20;
+            progressBar5.Value = 20;
+            tabControl1.SelectedIndex = 4;
+            MaximizeBox = false;
+
             //MessageBuilder messageBuilder = new MessageBuilder('#', '%');
-            MessageBuilder messageBuilder = new MessageBuilder('#', '%');
-            serialMessenger = new SerialMessenger("COM13", 9600, messageBuilder);
+            MessageBuilder messageBuilder = new MessageBuilder('\n');
+            serialMessenger = new SerialMessenger(port, speed, messageBuilder);
 
             readMessageTimer = new System.Windows.Forms.Timer();
             readMessageTimer.Interval = 10;
             readMessageTimer.Tick += new EventHandler(ReadMessageTimer_Tick);
         }
 
-        /*
-        private void connectButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                serialMessenger.Connect();
-                readMessageTimer.Enabled = true;
-                labelConnected.Text = "Connected to Arduino\n" + port;
-                labelConnected.BackColor = Color.LightGreen;
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-        }
-        
-        private void disconnecButton_Click(object sender, EventArgs e)
-        {
-            disconnect();
-            labelConnected.Text = "not connected";
-            labelConnected.BackColor = Color.Red;
-
-        }
-        */
-
-        private void ReadMessageTimer_Tick(object sender, EventArgs e)
-        {
-            string[] messages = serialMessenger.ReadMessages();
-            if (messages != null)
-            {
-                foreach (string message in messages)
-                {
-                    processReceivedMessage(message);
-                }
-            }
-        }
-
-        
-        /// <summary>
-        /// handle received messages
-        /// </summary>
-        /// <param name="message"></param>
-        private void processReceivedMessage(string message)
-        {
-            // First trim whitespace characters like a trailing '\r'.
-            // This is needed because the Arduino Serial.println adds \r\n.
-            // '\n' will be removed because this is used as the message separation character,
-            // but the '\r' must also be removed, otherwise comparing the message strings will not work.
-            message = message.Trim();
-            // Add message to the listBox.
-
-
-            /*
-            listBoxMessagesReceived.Items.Add(message);
-
-            */
-
-            if (message == "80")
-            {
-                //Color is blue
-                startButton.Enabled = true;
-                account.addScore();
-            }
-            else if (message == "160")
-            {
-                //Color is red
-                startButton.Enabled = true;
-                account.addScore();
-            }
-            else if(message == "240")
-            {
-                //Color is green
-                startButton.Enabled = true;
-                account.addScore();
-            }
-            else if (message == "320")
-            {
-                //Color is yellow
-                startButton.Enabled = true;
-                account.addScore();
-            }
-            else if (message == "400")
-            {
-                //Color is White
-                startButton.Enabled = true;
-                account.addScore();
-            }
-
-        }
-
-        private int getParamValue(string message)
-        {
-            int colonIndex = message.IndexOf(':');
-            if (colonIndex != -1)
-            {
-                string param = message.Substring(colonIndex + 1);
-                int value;
-                bool done = int.TryParse(param, out value);
-                if (done)
-                {
-                    return value;
-                }
-            }
-            throw new ArgumentException("message contains no value parameter");
-        }
-
-        private void RemoteControlForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            disconnect();
-        }
-
-        /*
-        private void buttonClear_Click(object sender, EventArgs e)
-        {
-            listBoxMessagesReceived.Items.Clear();
-        }
-
-        private void buttonSend_Click(object sender, EventArgs e)
-        {
-            serialMessenger.SendMessage(textBoxSendMessage.Text);
-        }
-        */
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void signin(Button Used, TextBox Name, TextBox Password, GroupBox container, Button Settings)
-        {
-            if (signin1 == true)
-            {
-                Settings.Visible = false;
-                container.BackColor = Color.Transparent;
-                Used.BackColor = Color.Transparent;
-                Used.Text = "Confirm";
-                Name.Text = "";
-                Password.Text = "";
-                signin1 = false;
-            }
-            else
-            {
-                if (Name.Text == "Test" && Password.Text == "Test")
-                {
-                    container.BackColor = Color.Green;
-                    Used.BackColor = Color.Red;
-                    Used.Text = "Cancel";
-                    Settings.Visible = true;
-                    signin1 = true;
-                }
-            }
-        }
-
         private void btnConfirmPlayer1_Click(object sender, EventArgs e)
         {
+            
             if (textBoxNamePlayer1.Text == "")
             {
                 MessageBox.Show("Please insert Username!", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
@@ -405,8 +268,6 @@ namespace JuicyBalls
                 //Listboxes
                 listBoxLog.BackColor = Color.DimGray;
                 listBoxLog.ForeColor = Color.White;
-                listBoxStats.BackColor = Color.DimGray;
-                listBoxStats.ForeColor = Color.White;
 
                 buttonDarkMode.Text = "Lightmode";
                 buttonDarkMode2.Text = "Lightmode";
@@ -497,8 +358,6 @@ namespace JuicyBalls
                 //Listboxes
                 listBoxLog.BackColor = Color.White;
                 listBoxLog.ForeColor = Color.Black;
-                listBoxStats.BackColor = Color.White;
-                listBoxStats.ForeColor = Color.Black;
 
                 buttonDarkMode.Text = "Darkmode";
                 buttonDarkMode2.Text = "Darkmode";
@@ -737,36 +596,66 @@ namespace JuicyBalls
             textBoxNamePlayer4.Text = "";
         }
 
+
+
+
+
+        private void btnTurn_Click(object sender, EventArgs e)
+        {
+            serialMessenger.SendMessage("#Start%");
+        }
+
+        private void btnRefill1_Click(object sender, EventArgs e)
+        {
+            progressBar1.Value = 20;
+            updateInterface();
+        }
+
+        private void btnRefill2_Click(object sender, EventArgs e)
+        {
+            progressBar2.Value = 20;
+            updateInterface();
+        }
+
+        private void btnRefill3_Click(object sender, EventArgs e)
+        {
+            progressBar3.Value = 20;
+            updateInterface();
+        }
+
+        private void btnRefill4_Click(object sender, EventArgs e)
+        {
+            progressBar4.Value = 20;
+            updateInterface();
+        }
+
+        private void btnRefill5_Click(object sender, EventArgs e)
+        {
+            progressBar5.Value = 20;
+            updateInterface();
+        }
+
+        public void updateInterface()
+        {
+            labelPBAR1.Text = progressBar1.Value.ToString();
+            labelPBAR2.Text = progressBar2.Value.ToString();
+            labelPBAR3.Text = progressBar3.Value.ToString();
+            labelPBAR4.Text = progressBar4.Value.ToString();
+            labelPBAR5.Text = progressBar5.Value.ToString();
+            labelBlue.Text = blue.ToString();
+            labelRed.Text = red.ToString();
+            labelGreen.Text = green.ToString();
+            labelYellow.Text = yellow.ToString();
+            labelWhite.Text = white.ToString();
+        }
         private void connectButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void connectButton_Click_1(object sender, EventArgs e)
-        {
             try
             {
-                startButton.Enabled = true;
-                connectButton.Enabled = false;
                 serialMessenger.Connect();
                 readMessageTimer.Enabled = true;
-                whoIsInControlLabel.Text = "Connected";
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-                whoIsInControlLabel.Text = "Connection failed";
-            }
-        }
-
-        private void disconnect()
-        {
-            try
-            {
-                connectButton.Enabled = true;
-                serialMessenger.SendMessage("#Stop%");
-                readMessageTimer.Enabled = false;
-                serialMessenger.Disconnect();
+                labelConnected.Text = "Connected to Arduino\n" + port;
+                labelConnected.BackColor = Color.LightGreen;
             }
             catch (Exception exception)
             {
@@ -777,24 +666,177 @@ namespace JuicyBalls
         private void disconnecButton_Click(object sender, EventArgs e)
         {
             disconnect();
-            whoIsInControlLabel.Text = "Disconnected";
+            labelConnected.Text = "not connected";
+            labelConnected.BackColor = Color.Red;
+
         }
 
-        private void startButton_Click(object sender, EventArgs e)
+        private void ReadMessageTimer_Tick(object sender, EventArgs e)
         {
-            serialMessenger.SendMessage("#Start%");
-            disconnecButton.Enabled = true;
-            startButton.Enabled = false;
-        }
-
-        private void btnTurn_Click(object sender, EventArgs e)
-        {
-            foreach (string name in account.LoggedInAccounts)
+            string[] messages = serialMessenger.ReadMessages();
+            if (messages != null)
             {
-                MessageBox.Show(name);
+                foreach (string message in messages)
+                {
+                    processReceivedMessage(message);
+                }
             }
         }
-    }
+
+        /// <summary>
+        /// handle received messages
+        /// </summary>
+        /// <param name="message"></param>
+        private void processReceivedMessage(string message)
+        {
+            // First trim whitespace characters like a trailing '\r'.
+            // This is needed because the Arduino Serial.println adds \r\n.
+            // '\n' will be removed because this is used as the message separation character,
+            // but the '\r' must also be removed, otherwise comparing the message strings will not work.
+            message = message.Trim();
+            // Add message to the listBox.
+            listBoxMessagesReceived.Items.Add(message);
+            //MessageBox.Show(message.IndexOf("k").ToString());
+            //String check = message.Substring(0, message.IndexOf("k")+ 1);
+            // TODO: Below fill in your message handling.
+            // The message handling below is only for illustration.
+            if (message == "80")
+            {
+                //Color is bluu
+                blue = blue + 1;
+                if (progressBar1.Value == 0)
+                {
+                    MessageBox.Show("Tube empty please refill");
+                }
+                else
+                {
+                    progressBar1.Value = progressBar1.Value - 1;
+                }
+
+                listBoxLog.Items.Add("Blauw");
+                updateInterface();
+            }
+            else if (message == "160")
+            {
+                //Color is red
+                red = red + 1;
+                if (progressBar2.Value == 0)
+                {
+                    MessageBox.Show("Tube empty please refill");
+                }
+                else
+                {
+                    progressBar2.Value = progressBar2.Value - 1;
+                }
+
+                listBoxLog.Items.Add("Rood");
+                updateInterface();
+            }
+            else if (message == "240")
+            {
+                //Color is green
+                green = green + 1;
+                if (progressBar3.Value == 0)
+                {
+                    MessageBox.Show("Tube empty please refill");
+                }
+                else
+                {
+                    progressBar3.Value = progressBar3.Value - 1;
+                }
+
+                listBoxLog.Items.Add("Groen");
+                updateInterface();
+            }
+            else if (message == "320")
+            {
+                //Color is yellow
+                yellow = yellow + 1;
+                if (progressBar4.Value == 0)
+                {
+                    MessageBox.Show("Tube empty please refill");
+                }
+                else
+                { 
+                    progressBar4.Value = progressBar4.Value - 1;
+                }
+
+                listBoxLog.Items.Add("Geel");
+                updateInterface();
+            }
+            else if (message == "400")
+            {
+                //Color is White
+
+                MessageBox.Show("Test");
+
+                white = white + 1;
+                if (progressBar5.Value == 0)
+                {
+                    MessageBox.Show("Tube empty please refill");
+                }
+                else
+                {
+                    progressBar5.Value = progressBar5.Value - 1;
+                }
+
+                listBoxLog.Items.Add("Wit");
+                updateInterface();
+            }
+        }
+
+        private int getParamValue(string message)
+        {
+            int colonIndex = message.IndexOf(':');
+            if (colonIndex != -1)
+            {
+                string param = message.Substring(colonIndex + 1);
+                int value;
+                bool done = int.TryParse(param, out value);
+                if (done)
+                {
+                    return value;
+                }
+            }
+            throw new ArgumentException("message contains no value parameter");
+        }
+
+        private void RemoteControlForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            disconnect();
+        }
+
+        private void disconnect()
+        {
+            try
+            {
+                readMessageTimer.Enabled = false;
+                serialMessenger.Disconnect();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            listBoxMessagesReceived.Items.Clear();
+        }
+
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            serialMessenger.SendMessage(textBoxSendMessage.Text);
+        }
+
+        private void buttonGoToStart_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 0;
+            SoundPlayer background = new SoundPlayer(Properties.Resources.BackgroundMusic);
+            background.PlayLooping();
+        }
+    } 
 }
+
 
 

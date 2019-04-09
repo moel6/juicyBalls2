@@ -137,12 +137,5 @@ namespace Library
         {
             return Username;
         }
-
-        private int beurt = 0;
-        public int score;
-        public void addScore()
-        {
-            dbclass.GetConnection();
-        }
     }
 }
